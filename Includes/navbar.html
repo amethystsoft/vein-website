@@ -1,0 +1,60 @@
+<script>
+    class ScrollNavbar extends HTMLElement {
+        constructor() {
+            super();
+            // Open shadow DOM so styles don't leak out to your page
+            this.attachShadow({ mode: "open" });
+        }
+        
+        connectedCallback() {
+            // Allow defining a custom threshold distance (defaults to 200px)
+            const threshold = this.getAttribute("threshold") || 200;
+            this.render();
+            this.initScrollListener(Number(threshold));
+        }
+        
+        initScrollListener(threshold) {
+            const container = this.shadowRoot.querySelector(".navbar-wrapper");
+            
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > threshold) {
+                    container.classList.add("is-visible");
+                } else {
+                    container.classList.remove("is-visible");
+                }
+            });
+        }
+        
+        render() {
+            this.shadowRoot.innerHTML = `
+        <style>
+          .navbar-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            box-sizing: border-box;
+            
+            /* Initial Hidden State */
+            transform: translateY(-100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          }
+      
+          /* Visible State when scrolled past threshold */
+          .navbar-wrapper.is-visible {
+            transform: translateY(0);
+          }
+        </style>
+        
+        <div class="navbar-wrapper">
+          <!-- The <slot> tag automatically takes whatever HTML you put inside <scroll-navbar> -->
+          <slot></slot>
+        </div>
+      `;
+        }
+    }
+    
+    customElements.define("scroll-navbar", ScrollNavbar);
+</script>
+
