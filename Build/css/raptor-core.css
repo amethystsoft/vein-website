@@ -1,0 +1,3466 @@
+/* ===== CSS VARIABLES & THEME ===== */
+
+/* automatic/manual light mode */
+:root,
+[data-color-scheme="light"] {
+    --accent: var(--r-blue);
+    --r-red: rgb(255, 56, 60);
+    --r-orange: rgb(255, 141, 40);
+    --r-yellow: rgb(255, 204, 0);
+    --r-green: rgb(52, 199, 89);
+    --r-mint: rgb(0, 200, 179);
+    --r-teal: rgb(0, 195, 208);
+    --r-cyan: rgb(0, 192, 232);
+    --r-blue: rgb(0, 136, 255);
+    --r-indigo: rgb(97, 85, 245);
+    --r-purple: rgb(203, 48, 224);
+    --r-pink: rgb(255, 45, 85);
+    --r-brown: rgb(172, 127, 94);
+    --r-gray: rgb(142, 142, 147);
+
+    /* ===== System Gray backgrounds (reversed order) ===== */
+    --bg: rgb(242, 242, 247);          /* systemGray6 */
+    --bg-secondary: rgb(229, 229, 234);/* systemGray5 */
+    --bg-tertiary: rgb(209, 209, 214); /* systemGray4 */
+    --bg-quaternary: rgb(199, 199, 204);/* systemGray3 */
+    --bg-quinary: rgb(174, 174, 178);  /* systemGray2 */
+
+    --bg-secondary-blur: rgba(185, 185, 185, 0.25);
+    --bg-page: white;
+
+    --divider: rgba(0, 0, 0, 0.08);
+    --border: var(--bg-quaternary);
+
+    --dropdown-hover-bg: rgba(60, 60, 67, 0.1);
+    --dropdown-active-bg: color-mix(in srgb, var(--dropdown-hover-bg) 95%, black);
+    --dropdown-hover-fg: var(--fg);
+    --segmented-active-bg: color-mix(in srgb, var(--bg) 25%, white);
+
+
+    --fg-lm: #1C1C1E;
+    --fg-dm: #F2F2F2;
+
+    --fg-inverse: var(--fg-dm);
+
+    --fg: var(--fg-lm);
+    --fg-secondary: #737373;
+    --fg-tertiary: #bfbfbf;
+
+    --anim-duration: 0.2s;
+    --anim-easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Semantic accent color scale */
+    --accent-secondary: color-mix(in srgb, var(--accent) 8%, white);
+    --accent-tertiary: color-mix(in srgb, var(--accent) 12%, white);
+    --accent-quaternary: color-mix(in srgb, var(--accent) 16%, white);
+    --accent-quinary: color-mix(in srgb, var(--accent) 20%, white);
+
+    /* Control defaults */
+    --ctrl-padding: 0.5em 0.75em;
+    --ctrl-gap: 0.25em;
+    --field-gap: 1em;
+
+    --font-family: system-ui, Roboto, Helvetica, sans-serif;
+    --font-weight: 400;
+
+    --h1-weight: bold;
+    --h2-weight: bold;
+    --h3-weight: bold;
+    --h4-weight: bold;
+    --h5-weight: bold;
+    --h6-weight: bold;
+    --codeblock-weight: inherit;
+
+    /* Font sizing */
+    --font-size: 1rem;
+    --code-block-font-size: 1rem;
+
+    /* Line heights */
+    --line-height: 1.45;
+    --heading-line-height: 1.25;
+
+    /* Heading weights */
+    --heading-font-weight: 600;
+}
+
+/* manual dark mode */
+[data-color-scheme="dark"] {
+    --r-red: rgb(255, 66, 69);
+    --r-orange: rgb(255, 146, 48);
+    --r-yellow: rgb(255, 214, 0);
+    --r-green: rgb(48, 209, 88);
+    --r-mint: rgb(0, 218, 195);
+    --r-teal: rgb(0, 210, 224);
+    --r-cyan: rgb(60, 211, 254);
+    --r-blue: rgb(0, 145, 255);
+    --r-indigo: rgb(109, 124, 255);
+    --r-purple: rgb(219, 52, 242);
+    --r-pink: rgb(255, 55, 95);
+    --r-brown: rgb(183, 138, 102);
+    --r-gray: rgb(142, 142, 147);
+
+    /* ===== System Gray backgrounds (reversed order) ===== */
+    --bg: rgb(28, 28, 30);             /* systemGray6 (dark) */
+    --bg-secondary: rgb(44, 44, 46);   /* systemGray5 (dark) */
+    --bg-tertiary: rgb(58, 58, 60);    /* systemGray4 (dark) */
+    --bg-quaternary: rgb(72, 72, 74);  /* systemGray3 (dark) */
+    --bg-quinary: rgb(99, 99, 102);    /* systemGray2 (dark) */
+
+    --bg-secondary-blur: rgba(90, 90, 90, 0.25);
+    --bg-page: #0f0f0f;
+    --dropdown-active-bg: color-mix(in srgb, var(--dropdown-hover-bg) 95%, white);
+
+    --divider: rgba(255, 255, 255, 0.12);
+    --border: var(--bg-quaternary);
+    --segmented-active-bg: var(--bg);
+    --dropdown-hover-bg: rgba(255, 255, 255, 0.08);
+
+    --fg-inverse: var(--fg-lm);
+    --fg: var(--fg-dm);
+    --fg-secondary: #8c8c8c;
+    --fg-tertiary: #404040;
+
+    /* Semantic accent color scale - brighter for dark mode */
+    --accent-secondary: color-mix(in srgb, var(--accent) 15%, #18181b);
+    --accent-tertiary: color-mix(in srgb, var(--accent) 22%, #18181b);
+    --accent-quaternary: color-mix(in srgb, var(--accent) 28%, #18181b);
+    --accent-quinary: color-mix(in srgb, var(--accent) 35%, #18181b);
+}
+
+:root {
+  /* Compact (phones / narrow) */
+  --h1-font-size: 2rem;
+  --h2-font-size: 1.75rem;
+  --h3-font-size: 1.375rem;
+  --h4-font-size: 1.125rem;
+  --h5-font-size: 1.0625rem;
+  --h6-font-size: 1rem;
+}
+
+@media (min-width: 575px) {
+  :root {
+    /* Regular (tablets / medium windows) */
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.875rem;
+    --h3-font-size: 1.5rem;
+    --h4-font-size: 1.25rem;
+    --h5-font-size: 1.125rem;
+    --h6-font-size: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    /* Expanded (desktop / wide layouts) */
+    --h1-font-size: 2.5rem;
+    --h2-font-size: 2rem;
+    --h3-font-size: 1.5rem;
+    --h4-font-size: 1.25rem;
+    --h5-font-size: 1.125rem;
+    --h6-font-size: 1rem;
+  }
+}
+
+@supports (color: color(display-p3 1 1 1)) {
+  :root,
+  :root[data-color-scheme="light"] {
+    --r-red: color(display-p3 1 0.219 0.235);
+    --r-orange: color(display-p3 1 0.57 0.18);
+    --r-yellow: color(display-p3 1 0.84 0);
+    --r-green: color(display-p3 0.3 0.78 0.35);
+    --r-mint: color(display-p3 0 0.78 0.7);
+    --r-teal: color(display-p3 0 0.77 0.81);
+    --r-cyan: color(display-p3 0 0.74 0.9);
+    --r-blue: color(display-p3 0 0.53 1);
+    --r-indigo: color(display-p3 0.38 0.34 0.97);
+    --r-purple: color(display-p3 0.85 0.23 0.93);
+    --r-pink: color(display-p3 1 0.26 0.45);
+    --r-brown: color(display-p3 0.68 0.5 0.37);
+    --r-gray: color(display-p3 0.56 0.56 0.58);
+
+    --accent-secondary: color-mix(in display-p3, var(--accent) 8%, white);
+    --accent-tertiary: color-mix(in display-p3, var(--accent) 12%, white);
+    --accent-quaternary: color-mix(in display-p3, var(--accent) 16%, white);
+    --accent-quinary: color-mix(in display-p3, var(--accent) 20%, white);
+  }
+
+  :root[data-color-scheme="dark"] {
+    --r-red: color(display-p3 1 0.27 0.27);
+    --r-orange: color(display-p3 1 0.59 0.21);
+    --r-yellow: color(display-p3 1 0.84 0.1);
+    --r-green: color(display-p3 0.26 0.82 0.38);
+    --r-mint: color(display-p3 0 0.85 0.76);
+    --r-teal: color(display-p3 0 0.82 0.88);
+    --r-cyan: color(display-p3 0.3 0.84 1);
+    --r-blue: color(display-p3 0 0.56 1);
+    --r-indigo: color(display-p3 0.44 0.48 1);
+    --r-purple: color(display-p3 0.9 0.24 0.95);
+    --r-pink: color(display-p3 1 0.28 0.47);
+    --r-brown: color(display-p3 0.72 0.54 0.4);
+    --r-gray: color(display-p3 0.56 0.56 0.58);
+
+    --accent-secondary: color-mix(in display-p3, var(--accent) 15%, #18181b);
+    --accent-tertiary: color-mix(in display-p3, var(--accent) 22%, #18181b);
+    --accent-quaternary: color-mix(in display-p3, var(--accent) 28%, #18181b);
+    --accent-quinary: color-mix(in display-p3, var(--accent) 35%, #18181b);
+  }
+}
+
+/* Allow accent variants to regenerate when --accent is overridden */
+.menu,
+.btn,
+button.btn {
+    --accent-secondary: color-mix(in srgb, var(--accent) 8%, white);
+    --accent-tertiary: color-mix(in srgb, var(--accent) 12%, white);
+    --accent-quaternary: color-mix(in srgb, var(--accent) 16%, white);
+    --accent-quinary: color-mix(in srgb, var(--accent) 20%, white);
+}
+
+[data-color-scheme="dark"] .menu,
+[data-color-scheme="dark"] .btn,
+[data-color-scheme="dark"] button.btn {
+    --accent-secondary: color-mix(in srgb, var(--accent) 15%, #18181b);
+    --accent-tertiary: color-mix(in srgb, var(--accent) 22%, #18181b);
+    --accent-quaternary: color-mix(in srgb, var(--accent) 28%, #18181b);
+    --accent-quinary: color-mix(in srgb, var(--accent) 35%, #18181b);
+}
+
+/* =========================================================
+ DROPDOWN COLOR TOKENS — Global + Auto-Synced
+ ========================================================= */
+
+/* Define mode-dependent variables globally */
+:root {
+    --dropdown-hover-base: rgba(60, 60, 67, 0.1);
+    --dropdown-active-base: black;
+}
+
+html[data-color-scheme="dark"] {
+    --dropdown-hover-base: rgba(255, 255, 255, 0.08);
+    --dropdown-active-base: white;
+}
+
+/* Use them locally — this part always recomputes */
+.menu-dropdown {
+    --dropdown-hover-bg: var(--dropdown-hover-base);
+    --dropdown-active-bg: color-mix(in srgb, var(--dropdown-hover-bg) 95%, var(--dropdown-active-base));
+}
+
+/* =========================================================
+   LIGHT-MODE ONLY: subtle darkening when accent = gray
+   ========================================================= */
+
+:root[data-color-scheme="light"]
+:is(.menu, .btn, button.btn)[style*="--accent: var(--r-gray)"],
+:root:not([data-color-scheme="dark"])
+:is(.menu, .btn, button.btn)[style*="--accent: var(--r-gray)"] {
+    --accent-secondary:  color-mix(in srgb, var(--r-gray) 20%, white);
+    --accent-tertiary:   color-mix(in srgb, var(--r-gray) 24%, white);
+    --accent-quaternary: color-mix(in srgb, var(--r-gray) 28%, white);
+    --accent-quinary:    color-mix(in srgb, var(--r-gray) 32%, white);
+}
+
+
+/* ===== CSS RESET & BASE STYLES ===== */
+
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    scrollbar-gutter: stable both-edges;
+}
+
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 2. Remove default margin and padding */
+* {
+    margin: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+main::before {
+    content: "";
+    display: block;
+    height: var(--main-spacing-top, 0);
+}
+
+main::after {
+    content: "";
+    display: block;
+    height: var(--main-spacing-bottom, 0);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        interpolate-size: allow-keywords;
+    }
+}
+
+body {
+    color: var(--fg);
+    background-color: var(--bg-page);
+    padding-top: var(--reserved-space-top, 0);
+    padding-bottom: var(--reserved-space-bottom, 0);
+
+    font-size: var(--font-size);
+    font-family: var(--font-family);
+    font-weight: var(--font-weight);
+    line-height: var(--line-height);
+    -webkit-text-size-adjust: none;
+    hanging-punctuation: first allow-end last;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: var(--bg-gradient);
+}
+
+p, span, em, li, div,
+h1, h2, h3, h4, h5, h6,
+blockquote, figcaption, small {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+button, input, select, textarea {
+  font-size: inherit;
+}
+
+strong {
+    color: inherit;
+}
+
+/* Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+/* Improve line wrapping */
+p {
+    text-wrap: pretty;
+    margin-bottom: var(--paragraph-margin-bottom);
+    margin-top: var(--paragraph-margin-top);
+    margin-right: var(--paragraph-margin-right);
+    margin-left: var(--paragraph-margin-left);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+    font-family: var(--heading-font-family, var(--font-family));
+    line-height: var(--heading-line-height);
+}
+
+h1 {
+    font-size: var(--h1-font-size);
+    font-weight: var(--h1-weight);
+    line-height: var(--h1-line-height, var(--headings-line-height, normal));
+}
+
+h2 {
+    font-size: var(--h2-font-size);
+    font-weight: var(--h2-weight);
+    line-height: var(--h2-line-height, var(--headings-line-height, normal));
+}
+
+h3 {
+    font-size: var(--h3-font-size);
+    font-weight: var(--h3-weight);
+    line-height: var(--h3-line-height, var(--headings-line-height, normal));
+}
+
+h4 {
+    font-size: var(--h4-font-size);
+    font-weight: var(--h4-weight);
+    line-height: var(--h4-line-height, var(--headings-line-height, normal));
+}
+
+h5 {
+    font-size: var(--h5-font-size);
+    font-weight: var(--h5-weight);
+    line-height: var(--h5-line-height, var(--headings-line-height, normal));
+}
+
+h6 {
+    font-size: var(--h6-font-size);
+    font-weight: var(--h6-weight);
+    line-height: var(--h6-line-height, var(--headings-line-height, normal));
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+/* Code blocks */
+pre, pre code {
+    font-size: var(--code-block-font-size, 1em);
+    line-height: var(--codeblock-line-height, normal);
+    margin: var(--paragraph-margin, 0rem);
+    font-weight: var(--codeblock-weight, inherit);
+    font-family: var(--monospace-font-family, ui-monospace, monospace);
+}
+
+/* Inline code */
+:not(pre) > code {
+    margin: 0;
+}
+
+:focus:not(:focus-visible) {
+    outline: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+ul, ol {
+    padding: 0;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--divider);
+    margin: 0.25rem 0;
+}
+
+.hstack > hr {
+    inline-size: 1px;
+    block-size: auto;
+    align-self: stretch;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    * {
+        transition-property: transform, opacity, background-color;
+        transition-duration: var(--anim-duration, 0.25s);
+        transition-timing-function: var(--anim-easing, cubic-bezier(0.25, 0.46, 0.45, 0.94));
+        transition-behavior: allow-discrete;
+    }
+}
+
+/* === Backdrop base === */
+/* Backdrop */
+dialog::backdrop {
+    background: oklch(0% 0 0 / 0.3);
+}
+
+/* Fade behaviors */
+dialog,
+[popover],
+dialog::backdrop {
+    opacity: 0;
+    transition:
+        opacity var(--anim-duration, 0.25s) var(--anim-easing, ease),
+        display var(--anim-duration, 0.25s) allow-discrete,
+        overlay var(--anim-duration, 0.25s) allow-discrete;
+}
+
+/* When open */
+dialog[open],
+:popover-open,
+dialog[open]::backdrop {
+    opacity: 1;
+}
+
+/* Entry start */
+@starting-style {
+    dialog[open],
+    :popover-open,
+    dialog[open]::backdrop {
+        opacity: 0;
+    }
+}
+
+i {
+    all: unset; /* Remove all inherited/user agent styles */
+    color: inherit;
+    display: inline-block; /* Give it a predictable box model */
+    font-style: normal; /* Remove italic default */
+}
+
+/* Inherit fonts for form controls */
+input, button, textarea, select {
+    font: inherit;
+}
+
+input {
+    border: 0;
+    border-radius: 0.375rem;
+    padding: 0 0.75rem;
+    box-sizing: border-box;
+}
+
+[data-color-scheme="dark"] {
+    input {
+        color: var(--fg);
+        background-color: var(--bg);
+    }
+}
+
+.svg {
+    height: auto;
+    width: 100%;
+    color: currentColor;
+}
+
+mark {
+    background-color: color-mix(in srgb, var(--accent) 20%, transparent);
+    color: inherit;
+}
+
+[data-color-scheme="dark"] mark {
+    background-color: color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+[data-search-highlighting="false"] mark,
+mark[data-search-highlighting="false"] {
+    background-color: transparent;
+}
+
+/* Rebind scheme-dependent paint properties at the color-scheme boundary
+   so local variable overrides correctly re-evaluate inherited styles. */
+[data-color-scheme] {
+    color: var(--fg);
+    accent-color: var(--accent);
+}
+
+
+/* ---------------------------------------------------------
+ MATERIAL TOKENS
+ --------------------------------------------------------- */
+:root {
+    /* ---- LIGHT ---- */
+    --mat-light-ultra-thin:   rgba(245, 245, 245, 0.35);
+    --mat-light-thin:         rgba(245, 245, 245, 0.45);
+    --mat-light-regular:      rgba(250, 250, 250, 0.60);
+    --mat-light-thick:        rgba(255, 255, 255, 0.72);
+    --mat-light-ultra-thick:  rgba(255, 255, 255, 0.80);
+
+    /* ---- DARK (deepened) ---- */
+    --mat-dark-ultra-thin:    rgba(15, 15, 15, 0.55);
+    --mat-dark-thin:          rgba(18, 18, 18, 0.65);
+    --mat-dark-regular:       rgba(20, 20, 20, 0.72);
+    --mat-dark-thick:         rgba(23, 23, 23, 0.80);
+    --mat-dark-ultra-thick:   rgba(25, 25, 25, 0.88);
+
+    /* ---- ACTIVE MATERIAL CONTEXT (defaults to light) ---- */
+    --mat-current-ultra-thin:   var(--mat-light-ultra-thin);
+    --mat-current-thin:         var(--mat-light-thin);
+    --mat-current-regular:      var(--mat-light-regular);
+    --mat-current-thick:        var(--mat-light-thick);
+    --mat-current-ultra-thick:  var(--mat-light-ultra-thick);
+
+    /* ---- FILTER SETTINGS ---- */
+    --mat-saturation:  saturate(180%);
+    --mat-brightness:  brightness(1.06);
+    --mat-contrast:    contrast(1.0);
+}
+
+/* ---------------------------------------------------------
+ DARK MODE VARIABLE SWAP (low specificity)
+ --------------------------------------------------------- */
+
+:root[data-color-scheme*="dark"],
+[data-color-scheme*="dark"] {
+    --mat-current-ultra-thin:   var(--mat-dark-ultra-thin);
+    --mat-current-thin:         var(--mat-dark-thin);
+    --mat-current-regular:      var(--mat-dark-regular);
+    --mat-current-thick:        var(--mat-dark-thick);
+    --mat-current-ultra-thick:  var(--mat-dark-ultra-thick);
+
+    --mat-saturation:  saturate(160%);
+    --mat-brightness:  brightness(0.91);
+    --mat-contrast:    contrast(1.06);
+}
+
+/* ---------------------------------------------------------
+ MATERIAL CLASSES (single-source, low specificity)
+ --------------------------------------------------------- */
+
+.material-ultra-thin {
+    background-color: var(--mat-current-ultra-thin);
+    backdrop-filter: blur(8px) var(--mat-saturation) var(--mat-brightness) var(--mat-contrast);
+}
+
+.material-thin {
+    background-color: var(--mat-current-thin);
+    backdrop-filter: blur(12px) var(--mat-saturation) var(--mat-brightness) var(--mat-contrast);
+}
+
+.material-regular {
+    background-color: var(--mat-current-regular);
+    backdrop-filter: blur(20px) var(--mat-saturation) var(--mat-brightness) var(--mat-contrast);
+}
+
+.material-thick {
+    background-color: var(--mat-current-thick);
+    backdrop-filter: blur(35px) var(--mat-saturation) var(--mat-brightness) var(--mat-contrast);
+}
+
+.material-ultra-thick {
+    background-color: var(--mat-current-ultra-thick);
+    backdrop-filter: blur(50px) var(--mat-saturation) var(--mat-brightness) var(--mat-contrast);
+}
+
+
+/* ===== SPACING UTILITIES ===== */
+
+/* Margin - All Sides */
+.m-0 { margin: 0; }
+.m-1 { margin: 0.25rem; }
+.m-2 { margin: 0.5rem; }
+.m-3 { margin: 1rem; }
+.m-4 { margin: 1.5rem; }
+.m-5 { margin: 3rem; }
+.m-auto { margin: auto; }
+
+/* Margin - Top */
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 1rem; }
+.mt-4 { margin-top: 1.5rem; }
+.mt-5 { margin-top: 3rem; }
+.mt-auto { margin-top: auto; }
+
+/* Margin - Bottom */
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 1rem; }
+.mb-4 { margin-bottom: 1.5rem; }
+.mb-5 { margin-bottom: 3rem; }
+.mb-auto { margin-bottom: auto; }
+
+/* Margin - Start (Left in LTR) */
+.ms-0 { margin-left: 0; }
+.ms-1 { margin-left: 0.25rem; }
+.ms-2 { margin-left: 0.5rem; }
+.ms-3 { margin-left: 1rem; }
+.ms-4 { margin-left: 1.5rem; }
+.ms-5 { margin-left: 3rem; }
+.ms-auto { margin-left: auto; }
+
+/* Margin - End (Right in LTR) */
+.me-0 { margin-right: 0; }
+.me-1 { margin-right: 0.25rem; }
+.me-2 { margin-right: 0.5rem; }
+.me-3 { margin-right: 1rem; }
+.me-4 { margin-right: 1.5rem; }
+.me-5 { margin-right: 3rem; }
+.me-auto { margin-right: auto; }
+
+/* Margin - Horizontal (Left & Right) */
+.mx-0 { margin-left: 0; margin-right: 0; }
+.mx-1 { margin-left: 0.25rem; margin-right: 0.25rem; }
+.mx-2 { margin-left: 0.5rem; margin-right: 0.5rem; }
+.mx-3 { margin-left: 1rem; margin-right: 1rem; }
+.mx-4 { margin-left: 1.5rem; margin-right: 1.5rem; }
+.mx-5 { margin-left: 3rem; margin-right: 3rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+
+/* Margin - Vertical (Top & Bottom) */
+.my-0 { margin-top: 0; margin-bottom: 0; }
+.my-1 { margin-top: 0.25rem; margin-bottom: 0.25rem; }
+.my-2 { margin-top: 0.5rem; margin-bottom: 0.5rem; }
+.my-3 { margin-top: 1rem; margin-bottom: 1rem; }
+.my-4 { margin-top: 1.5rem; margin-bottom: 1.5rem; }
+.my-5 { margin-top: 3rem; margin-bottom: 3rem; }
+.my-auto { margin-top: auto; margin-bottom: auto; }
+
+/* Padding - All Sides */
+.p-0 { padding: 0; }
+.p-1 { padding: 0.25rem; }
+.p-2 { padding: 0.5rem; }
+.p-3 { padding: 1rem; }
+.p-4 { padding: 1.5rem; }
+.p-5 { padding: 3rem; }
+
+/* Padding - Top */
+.pt-0 { padding-top: 0; }
+.pt-1 { padding-top: 0.25rem; }
+.pt-2 { padding-top: 0.5rem; }
+.pt-3 { padding-top: 1rem; }
+.pt-4 { padding-top: 1.5rem; }
+.pt-5 { padding-top: 3rem; }
+
+/* Padding - Bottom */
+.pb-0 { padding-bottom: 0; }
+.pb-1 { padding-bottom: 0.25rem; }
+.pb-2 { padding-bottom: 0.5rem; }
+.pb-3 { padding-bottom: 1rem; }
+.pb-4 { padding-bottom: 1.5rem; }
+.pb-5 { padding-bottom: 3rem; }
+
+/* Padding - Start (Left in LTR) */
+.ps-0 { padding-left: 0; }
+.ps-1 { padding-left: 0.25rem; }
+.ps-2 { padding-left: 0.5rem; }
+.ps-3 { padding-left: 1rem; }
+.ps-4 { padding-left: 1.5rem; }
+.ps-5 { padding-left: 3rem; }
+
+/* Padding - End (Right in LTR) */
+.pe-0 { padding-right: 0; }
+.pe-1 { padding-right: 0.25rem; }
+.pe-2 { padding-right: 0.5rem; }
+.pe-3 { padding-right: 1rem; }
+.pe-4 { padding-right: 1.5rem; }
+.pe-5 { padding-right: 3rem; }
+
+/* Padding - Horizontal (Left & Right) */
+.px-0 { padding-left: 0; padding-right: 0; }
+.px-1 { padding-left: 0.25rem; padding-right: 0.25rem; }
+.px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
+.px-3 { padding-left: 1rem; padding-right: 1rem; }
+.px-4 { padding-left: 1.5rem; padding-right: 1.5rem; }
+.px-5 { padding-left: 3rem; padding-right: 3rem; }
+
+/* Padding - Vertical (Top & Bottom) */
+.py-0 { padding-top: 0; padding-bottom: 0; }
+.py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.py-3 { padding-top: 1rem; padding-bottom: 1rem; }
+.py-4 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+.py-5 { padding-top: 3rem; padding-bottom: 3rem; }
+
+
+/* ===========================================
+   MARKDOWN TYPOGRAPHY & SPACING
+   =========================================== */
+
+/*
+ Core principle:
+ ----------------
+ - `.markdown` defines ALL default content spacing
+ - `.widget .markdown` explicitly resets it
+ - UI components (menus, dropdowns, etc.) must NOT be affected
+*/
+
+/* ===========================================
+   Font Size Utilities (Bootstrap compatible)
+   =========================================== */
+
+/* Largest, similar to <h1> */
+.text-h1 {
+  font-size: var(--h1-font-size);
+  line-height: var(--h1-line-height, var(--headings-line-height, normal));
+}
+
+/* Slightly smaller, like <h2> */
+.text-h2 {
+  font-size: var(--h2-font-size);
+  line-height: var(--h2-line-height, var(--headings-line-height, normal));
+}
+
+/* Medium-large, like <h3> */
+.text-h3 {
+  font-size: var(--h3-font-size);
+  line-height: var(--h3-line-height, var(--headings-line-height, normal));
+}
+
+/* Heading-ish */
+.text-h4 {
+  font-size: var(--h4-font-size);
+  line-height: var(--h4-line-height, var(--headings-line-height, normal));
+}
+
+/* Subheading */
+.text-h5 {
+  font-size: var(--h5-font-size);
+  line-height: var(--h5-line-height, var(--headings-line-height, normal));
+}
+
+/* Body text */
+.text-h6 {
+  font-size: var(--h6-font-size);
+  line-height: var(--h6-line-height, var(--headings-line-height, normal));
+}
+
+.text-small   { font-size: 0.9rem; }
+.text-xSmall  { font-size: 0.8rem; }
+.text-xxSmall { font-size: 0.7rem; }
+.text-xxxSmall{ font-size: 0.6rem; }
+
+/* ===========================================
+   Utilities
+   =========================================== */
+
+.line-clamp {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--max-line-length, 1);
+}
+
+.line-clamp-none {
+    overflow: visible;
+    display: block;
+    -webkit-box-orient: horizontal;
+    -webkit-line-clamp: unset;
+}
+
+/* ===========================================
+   Definition Lists
+   =========================================== */
+
+.markdown dt {
+    margin-bottom: 0.25em;
+}
+
+.markdown dd {
+    margin-inline-start: var(--definition-group-indent, 2.5em);
+    margin-bottom: 1em;
+}
+
+.markdown > a {
+    display: block;
+}
+
+/* ===========================================
+   Paragraph-Level Spacing
+   =========================================== */
+
+/* Top-level content spacing */
+.markdown dl,
+.markdown p,
+.markdown > a,
+.markdown pre,
+.markdown hr,
+.markdown table,
+.markdown > div {
+    margin-top: var(--paragraph-margin-top);
+    margin-right: var(--paragraph-margin-right);
+    margin-left: var(--paragraph-margin-left);
+}
+
+.markdown dl,
+.markdown p:not(:last-child),
+.markdown > a:not(:last-child),
+.markdown pre:not(:last-child),
+.markdown hr:not(:last-child),
+.markdown table:not(:last-child),
+.markdown > div:not(:last-child) {
+    margin-bottom: var(--paragraph-margin-bottom, 1.2em);
+}
+
+/* Widgets behave like block content, but avoid double-spacing */
+.widget:not(:has(+ .widget)) {
+    margin-bottom: var(--paragraph-margin-bottom, 1.2em);
+}
+
+/* Code blocks inside list items */
+.markdown li pre {
+    margin-top: 1.2em;
+}
+
+/* ===========================================
+   Headings
+   =========================================== */
+
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+    margin-top: var(--heading-margin-top, 1.2em);
+    margin-bottom: var(--heading-margin-bottom, 0.5em);
+    margin-right: var(--heading-margin-right);
+    margin-left: var(--heading-margin-left);
+}
+
+/* When a rule precedes a heading, let the rule carry spacing */
+.markdown hr + h2,
+.markdown hr + h3,
+.markdown hr + h4,
+.markdown hr + h5,
+.markdown hr + h6 {
+    margin-top: 0;
+}
+
+/* Extra breathing room before section breaks */
+.markdown hr:has(+ h2),
+.markdown hr:has(+ h3),
+.markdown hr:has(+ h4),
+.markdown hr:has(+ h5),
+.markdown hr:has(+ h6) {
+    margin-top: 2.5em;
+    margin-bottom: 1em;
+}
+
+/* ===========================================
+   Lists (Markdown ONLY)
+   =========================================== */
+
+/*
+ IMPORTANT:
+ ----------
+ These rules intentionally DO NOT apply inside widgets.
+ UI components frequently use <ul>/<li> for structure.
+*/
+
+.markdown .list {
+    padding-inline-start: 0;
+}
+
+/* Undo our reset */
+.markdown :is(ul, ol):not(:where(.widget, .widget *)) {
+    padding: revert;
+}
+
+.markdown li:not(:where(.widget *)) {
+    margin-bottom: 1em;
+}
+
+.markdown li > :is(ul, ol):not(:where(.widget *)) {
+    margin-top: 1em;
+}
+
+/* ===========================================
+   Tables
+   =========================================== */
+
+.markdown table td {
+    padding-inline: 0;
+}
+
+/* ===========================================
+   Widget Opt-Out
+   =========================================== */
+
+/*
+ Widgets explicitly reset Markdown spacing.
+ This prevents content rules from breaking UI components
+ like dropdown menus, nav lists, and control groups.
+*/
+
+.markdown .widget p,
+.markdown .widget pre,
+.markdown .widget hr,
+.markdown .widget table,
+.markdown .widget ul,
+.markdown .widget ol,
+.markdown .widget li,
+.markdown .widget h1,
+.markdown .widget h2,
+.markdown .widget h3,
+.markdown .widget h4,
+.markdown .widget h5,
+.markdown .widget h6 {
+    margin: 0;
+}
+
+.markdown .widget ul:not(.menu-dropdown),
+.markdown .widget ol:not(.menu-dropdown) {
+  padding: 0;
+}
+
+/* Tables inside widgets keep compact spacing */
+.markdown table.widget td {
+    padding: 0.6rem 0.75rem;
+}
+
+/* ===========================================
+   Text Alignment Utilities
+   =========================================== */
+
+.text-start  { text-align: start; }
+.text-center { text-align: center; }
+.text-end    { text-align: end; }
+
+/* ===========================================
+   Font Scale Utilities (fs-*)
+   =========================================== */
+
+.fs-1 {
+    font-size: var(--h1-font-size, clamp(2rem, 1.5rem + 1vw, 2.25rem));
+    font-weight: var(--h1-weight, inherit);
+    line-height: var(--h1-line-height, var(--headings-line-height, normal));
+}
+
+.fs-2 {
+    font-size: var(--h2-font-size, clamp(1.75rem, 1.5rem + 0.5vw, 1.875rem));
+    font-weight: var(--h2-weight, inherit);
+    line-height: var(--h2-line-height, var(--headings-line-height, normal));
+}
+
+.fs-3 {
+    font-size: var(--h3-font-size, clamp(1.375rem, 1.25rem + 0.5vw, 1.5rem));
+    font-weight: var(--h3-weight, inherit);
+    line-height: var(--h3-line-height, var(--headings-line-height, normal));
+}
+
+.fs-4 {
+    font-size: var(--h4-font-size, clamp(1.125rem, 1rem + 0.5vw, 1.25rem));
+    font-weight: var(--h4-weight, inherit);
+    line-height: var(--h4-line-height, var(--headings-line-height, normal));
+}
+
+.fs-5 {
+    font-size: var(--h5-font-size, 1.125rem);
+    font-weight: var(--h5-weight, inherit);
+    line-height: var(--h5-line-height, var(--headings-line-height, normal));
+}
+
+.fs-6 {
+    font-size: var(--h6-font-size, 1rem);
+    font-weight: var(--h6-weight, inherit);
+    line-height: var(--h6-line-height, var(--headings-line-height, normal));
+}
+
+
+/* ===== CONTAINER ===== */
+
+.container {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 1rem;
+    max-width: 100%;
+}
+
+/* sm */
+@media (min-width: 575px) {
+    .container {
+        max-width: var(--content-max-width, 575px);
+        padding-inline: 2rem;
+    }
+}
+
+/* md */
+@media (min-width: 768px) {
+    .container {
+        max-width: var(--content-max-width, 768px);
+        padding-inline: 2rem;
+    }
+}
+
+/* lg */
+@media (min-width: 1024px) {
+    .container {
+        max-width: var(--content-max-width, 1024px);
+        padding-inline: 2rem;
+    }
+}
+
+/* xl */
+@media (min-width: 1440px) {
+    .container {
+        max-width: var(--content-max-width, 1440px);
+        padding-inline: 2rem;
+    }
+}
+
+.img-resizable {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.ctrl-xs {
+    --ctrl-padding: 0.25em 0.5em;
+    --ctrl-font-size: 0.75em;
+    --ctrl-line-height: 1em;
+    --ctrl-gap: 0.25em;
+}
+
+.ctrl-sm {
+    --ctrl-padding: 0.375em 0.75em;
+    --ctrl-font-size: 0.875em;
+    --ctrl-line-height: 1.125em;
+    --ctrl-gap: 0.375em;
+}
+
+.ctrl-md {
+    --ctrl-padding: 0.5em 1em;
+    --ctrl-font-size: 1em;
+    --ctrl-line-height: 1.25em;
+    --ctrl-gap: 0.5em;
+}
+
+.ctrl-lg {
+    --ctrl-padding: 0.625em 1.25em;
+    --ctrl-font-size: 1.15em;
+    --ctrl-line-height: 1.375em;
+    --ctrl-gap: 0.5em;
+}
+
+.ctrl-xl {
+    --ctrl-padding: 0.75em 1.5em;
+    --ctrl-font-size: 1.25em;
+    --ctrl-line-height: 1.5em;
+    --ctrl-gap: 0.5em;
+}
+
+/* === Background Extension Effect === */
+.extend-bg {
+  position: relative;
+  z-index: 0;
+  overflow: visible;
+}
+
+.extend-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100dvw;
+  margin-inline: calc(50% - 50dvw);
+  background: inherit;
+  z-index: -1;
+}
+
+/* Fixed & Sticky Positioning (Bootstrap-compatible, no !important) */
+:where(.fixed-top) {
+  position: fixed;
+  top: var(--position-offset, 0);
+  left: 0;
+  right: 0;
+  z-index: var(--z-fixed, 1000);
+}
+
+:where(.fixed-bottom) {
+  position: fixed;
+  bottom: var(--position-offset, 0);
+  left: 0;
+  right: 0;
+  z-index: var(--z-fixed, 1000);
+}
+
+:where(.sticky-top) {
+  position: sticky;
+  top: var(--position-offset, 0);
+  z-index: var(--z-sticky, 900);
+}
+
+:where(.sticky-bottom) {
+  position: sticky;
+  bottom: var(--position-offset, 0);
+  z-index: var(--z-sticky, 900);
+}
+
+.vstack {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.hstack {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tapped {
+    cursor: pointer;
+}
+
+.container-relative {
+    display: grid;
+    overflow: hidden;
+}
+
+.screen-relative {
+  display: flex;
+}
+
+.frame-height,
+.frame-width {
+    display: grid;
+    overflow: hidden;
+}
+
+.frame-height > img {
+    display: block;
+    max-height: 100%;
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+.justify-content-start {
+    justify-content: flex-start;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.justify-content-end {
+    justify-content: flex-end;
+}
+
+.align-self-start {
+    align-self: flex-start;
+}
+
+.align-self-center {
+    align-self: center;
+}
+
+.align-self-end {
+    align-self: flex-end;
+}
+
+.align-items-start {
+    align-items: flex-start;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.align-items-end {
+    align-items: flex-end;
+}
+
+/* Size */
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+
+/* Object-fit */
+.object-fit-contain { object-fit: contain; }
+.object-fit-cover { object-fit: cover; }
+.object-fit-fill { object-fit: fill; }
+.object-fit-scale-down { object-fit: scale-down; }
+.object-fit-none { object-fit: none; }
+
+/* GAP (both axes) */
+.gap-0 { gap: 0; }
+.gap-1 { gap: 0.25rem; }
+.gap-2 { gap: 0.5rem; }
+.gap-3 { gap: 1rem; }
+.gap-4 { gap: 1.5rem; }
+.gap-5 { gap: 3rem; }
+
+.w-100 {
+    width: 100%;
+}
+
+.h-100 {
+    height: 100%;
+}
+
+/* Base badge shape */
+.badge {
+    display: inline-block;
+    font-size: 0.75em;
+    line-height: 1;
+    padding: 0.35em 0.6em;
+    font-weight: 500;
+    vertical-align: baseline;
+}
+
+/* Shape variants */
+.badge-pill { border-radius: 999px; }
+
+/* Automatically uses theme accent colors */
+.badge-automatic {
+    background-color: var(--accent);
+    color: var(--fg-dm);
+}
+
+/* Soft background tint of the accent */
+.badge-subtle {
+    background-color: color-mix(in srgb, var(--accent) 15%, transparent);
+    color: var(--accent);
+}
+
+/* Outline-style badge based on accent */
+.badge-subtle-bordered {
+    background-color: color-mix(in srgb, var(--accent) 15%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+    color: var(--accent);
+}
+
+.label {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--label-gap, 10px);
+}
+
+.spacer {
+  flex: 1;
+}
+
+/* ===== DISPLAY UTILITIES ===== */
+
+.d-inline {
+  display: inline;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-inline-flex {
+  display: inline-flex;
+}
+
+.d-grid {
+  display: grid;
+}
+
+.d-none {
+  display: none !important;
+}
+
+/* Removing text styling from a link. */
+.link-plain {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.link-plain:hover {
+    --fg: var(--accent);
+}
+
+.color {
+    width: 100%;
+    height: 100%;
+}
+
+/* Capsule */
+.ctrl-capsule,
+.ctrl-capsule input,
+.ctrl-capsule button {
+    --btn-corner-radius: 9999px;
+    --btn-corner-shape: round;
+    border-radius: var(--btn-corner-radius);
+    corner-shape: var(--btn-corner-shape);
+}
+
+/* Rounded Rectangle (default) */
+.ctrl-rounded,
+.ctrl-rounded input,
+.ctrl-rounded button {
+    --btn-corner-radius: 0.375rem;
+    --btn-corner-shape: superellipse(1.25);
+    border-radius: var(--btn-corner-radius);
+    corner-shape: var(--btn-corner-shape);
+}
+
+/* Square */
+.ctrl-rect,
+.ctrl-rect input,
+.ctrl-rect button {
+    --btn-corner-radius: 0;
+    --btn-corner-shape: rect;
+    border-radius: var(--btn-corner-radius);
+    corner-shape: var(--btn-corner-shape);
+}
+
+
+/* ===== DETAILS / SUMMARY ELEMENT STYLES ===== */
+
+/* Base summary styles */
+.summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    flex-shrink: 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.summary * {
+    color: unset;
+}
+
+.summary::-webkit-details-marker,
+.summary::-moz-list-bullet {
+    display: none;
+}
+
+/* ===== SUMMARY INDICATOR STYLES ===== */
+
+/* Custom disclosure indicator using CSS variable */
+.summary::after {
+    content: var(--disc-indicator, "\F64D");
+    font-family: "bootstrap-icons";
+    position: absolute;
+    right: 20px;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    transition: transform 0.2s;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+details.disclosure[open] > .summary::after {
+    content: "\F63B";
+}
+
+/* ===== SUMMARY CONTENT STYLES ===== */
+
+/* Base inline element styles */
+.summary {
+    transition: all var(--anim-duration, 0.3s) var(--anim-easing, cubic-bezier(0.25, 0.46, 0.45, 0.94));
+}
+
+/* Remove focus styles for mouse interactions AND remove default outline */
+.summary:focus:not(:focus-visible) {
+    background-color: inherit;
+    color: inherit;
+}
+
+
+.search-form {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    flex: 0 0 auto;
+    min-width: 0;
+    gap: var(--search-gap, 0.5rem);
+}
+
+/* Prevent stretch inside navbars */
+.nav-inner > li:has(.search-form) {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+}
+
+/* --- Input + Button Layout --- */
+.search-form input {
+    flex: 1 1 auto;
+    min-width: 0;
+    border: 1px solid transparent;
+    border-radius: var(--btn-corner-radius, 0.375rem);
+    box-sizing: border-box;
+}
+
+.search-form button {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    border-radius: var(--btn-corner-radius, 0.375rem);
+}
+
+/* --- Normalize Layout --- */
+.search-form,
+.search-form * {
+    margin: 0;
+    border-spacing: 0;
+    gap: 0.5rem;
+}
+
+/* --- Base Border Reset (scoped) --- */
+/* Only flatten when inside joined layouts */
+.ctrl-group .search-input,
+.ctrl-group .search-button,
+.search-form.search-spacing-none .search-input,
+.search-form.search-spacing-none .search-button {
+    border-radius: 0;
+}
+
+/* Otherwise, allow normal inherited radius */
+.search-input,
+.search-button {
+    border-radius: var(--btn-corner-radius, 0.375rem);
+    box-sizing: border-box;
+}
+
+/* --- Input: rounded left only --- */
+.search-input {
+    border-top-left-radius: var(--btn-corner-radius, 0.375rem) !important;
+    border-bottom-left-radius: var(--btn-corner-radius, 0.375rem) !important;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* --- Button: rounded right only --- */
+.search-button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: var(--btn-corner-radius, 0.375rem);
+    border-bottom-right-radius: var(--btn-corner-radius, 0.375rem);
+}
+
+/* If inside a .btn-bordered parent, force visual continuity */
+.btn-bordered .search-button {
+    border: 1px solid var(--accent, currentColor);
+    box-sizing: border-box;
+}
+
+/* --- Control sizing / alignment --- */
+.search-form input,
+.search-form button {
+    font-size: var(--ctrl-font-size, 1em);
+    line-height: var(--ctrl-line-height, 1.25em);
+    padding: var(--ctrl-padding, 0em 0.75em);
+    height: auto;
+}
+
+/* Keep visual alignment consistent with .btn and .ctrl-group */
+.search-form {
+    align-items: center; /* instead of stretch */
+}
+
+/* Fix baseline alignment issue inside .ctrl-group */
+.ctrl-group .search-form {
+    display: flex;
+    gap: 0;
+    align-items: center;
+}
+
+/* Input shouldn’t grow taller than its siblings */
+.search-form input {
+    display: flex;
+    align-items: stretch;
+    box-sizing: border-box;
+}
+
+/* --- Button theming --- */
+.search-form {
+    --btn-bg: var(--accent);
+    --btn-fg: white;
+    --btn-border: none;
+    --btn-hover-bg: color-mix(in srgb, var(--accent) 92%, black);
+    --btn-active-bg: color-mix(in srgb, var(--accent) 85%, black);
+}
+
+.search-form .search-button {
+    background: var(--btn-bg);
+    color: var(--btn-fg);
+    border: var(--btn-border);
+}
+
+/* Default rounded rectangle */
+.search-button {
+    --btn-corner-radius: 0.375rem;
+    --btn-corner-shape: superellipse(1.25);
+    border-radius: var(--btn-corner-radius);
+    corner-shape: var(--btn-corner-shape);
+}
+
+/* Capsule */
+.search-form.ctrl-capsule .search-button {
+    --btn-corner-radius: 9999px;
+    --btn-corner-shape: round;
+    border-radius: var(--btn-corner-radius);
+    corner-shape: var(--btn-corner-shape);
+}
+
+.search-form.ctrl-capsule button.search-button.btn {
+    border-radius: var(--btn-corner-radius);
+    corner-shape: var(--btn-corner-shape);
+}
+
+.search-form.ctrl-rounded .search-button {
+    --btn-corner-radius: 0.375rem;
+    --btn-corner-shape: superellipse(1.25);
+    border-radius: var(--btn-corner-radius);
+    corner-shape: var(--btn-corner-shape);
+}
+
+.search-form.ctrl-rect .search-button {
+    --btn-corner-radius: 0;
+    --btn-corner-shape: rect;
+    border-radius: var(--btn-corner-radius);
+    corner-shape: var(--btn-corner-shape);
+}
+
+
+/* ===== DIALOG ===== */
+
+dialog {
+    border: none;
+    background: transparent;
+}
+
+dialog::backdrop {
+    background-color: var(--presentation-backdrop, rgba(0, 0, 0, 0.25));
+    background-image: var(--presentation-backdrop-image, none);
+    backdrop-filter: var(--presentation-backdrop-filter, none);
+}
+
+/* ===== POPOVER ===== */
+
+/* Base popover styles */
+[popover] {
+    position: absolute;
+    border: none;
+    background: none;
+}
+
+/* Hide default backdrop */
+[popover]::backdrop {
+    background-color: var(--presentation-backdrop);
+    background-image: var(--presentation-backdrop-image, none);
+    backdrop-filter: var(--presentation-backdrop-filter, none);
+}
+
+/* ===== PRESENTATION ALIGNMENT (works for both dialog and popover) ===== */
+
+/* Base alignment styles */
+[popover],
+dialog[open],
+[popover]:popover-open {
+    position: fixed;
+    inset: unset;
+    margin: 0;
+}
+
+/* Edge alignments - centered on edge */
+dialog.presentation-align-top,
+dialog.presentation-align-top[open],
+[popover].presentation-align-top,
+[popover].presentation-align-top:popover-open {
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+dialog.presentation-align-bottom,
+dialog.presentation-align-bottom[open],
+[popover].presentation-align-bottom,
+[popover].presentation-align-bottom:popover-open {
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+dialog.presentation-align-left,
+dialog.presentation-align-left[open],
+[popover].presentation-align-left,
+[popover].presentation-align-left:popover-open {
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+dialog.presentation-align-right,
+dialog.presentation-align-right[open],
+[popover].presentation-align-right,
+[popover].presentation-align-right:popover-open {
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Corner alignments */
+dialog.presentation-align-topLeading,
+dialog.presentation-align-topLeading[open],
+[popover].presentation-align-topLeading,
+[popover].presentation-align-topLeading:popover-open {
+    top: 10px;
+    left: 10px;
+}
+
+dialog.presentation-align-topTrailing,
+dialog.presentation-align-topTrailing[open],
+[popover].presentation-align-topTrailing,
+[popover].presentation-align-topTrailing:popover-open {
+    top: 10px;
+    right: 10px;
+}
+
+dialog.presentation-align-bottomLeading,
+dialog.presentation-align-bottomLeading[open],
+[popover].presentation-align-bottomLeading,
+[popover].presentation-align-bottomLeading:popover-open {
+    bottom: 10px;
+    left: 10px;
+}
+
+dialog.presentation-align-bottomTrailing,
+dialog.presentation-align-bottomTrailing[open],
+[popover].presentation-align-bottomTrailing,
+[popover].presentation-align-bottomTrailing:popover-open {
+    bottom: 10px;
+    right: 10px;
+}
+
+/* Side alignments - flush to edge */
+dialog.presentation-align-leading,
+dialog.presentation-align-leading[open],
+[popover].presentation-align-leading,
+[popover].presentation-align-leading:popover-open {
+    left: 10px;
+    top: 10px;
+}
+
+dialog.presentation-align-trailing,
+dialog.presentation-align-trailing[open],
+[popover].presentation-align-trailing,
+[popover].presentation-align-trailing:popover-open {
+    right: 10px;
+    top: 10px;
+}
+
+/* Center alignment */
+dialog.presentation-align-center,
+dialog.presentation-align-center[open],
+[popover].presentation-align-center,
+[popover].presentation-align-center:popover-open {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* ===== POPOVER ANCHOR POSITIONING ===== */
+
+[class^="popover-anchor-"] {
+    position-anchor: var(--anchor-id);
+    position: absolute;
+}
+
+.popover-anchor-top {
+    bottom: anchor(top);
+    position-area: top;
+}
+
+.popover-anchor-bottom {
+    top: anchor(bottom);
+    position-area: bottom;
+}
+
+.popover-anchor-left {
+    right: anchor(left);
+    position-area: left;
+}
+
+.popover-anchor-right {
+    left: anchor(right);
+    position-area: right;
+}
+
+.popover-anchor-top-left {
+    bottom: anchor(top);
+    right: anchor(left);
+    position-area: top-start;
+}
+
+.popover-anchor-top-right {
+    bottom: anchor(top);
+    left: anchor(right);
+    position-area: top-end;
+}
+
+.popover-anchor-bottom-left {
+    top: anchor(bottom);
+    right: anchor(left);
+    position-area: bottom-start;
+}
+
+.popover-anchor-bottom-right {
+    top: anchor(bottom);
+    left: anchor(right);
+    position-area: bottom-end;
+}
+
+.popover-anchor-center {
+    top: anchor(center);
+    left: anchor(center);
+    position-area: center;
+    transform: translate(-50%, -50%);
+}
+
+
+/* ScrollView – infinite scrolling */
+
+.scroll-view {
+    overflow: hidden;
+    width: 100%;
+}
+
+.scroll-track {
+    display: flex;
+    width: max-content;
+    height: 100%;
+    will-change: transform;
+
+    animation-name: scroll-infinite;
+    animation-duration: var(--scroll-duration, 40s);
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: var(--scroll-direction, normal);
+}
+
+.scroll-group {
+    display: flex;
+    width: var(--scroll-item-size, auto);
+}
+
+.scroll-view-x .scroll-group > .scroll-item {
+    flex: 0 0 var(--scroll-item-size, auto);
+}
+
+/* Horizontal is default */
+@keyframes scroll-infinite {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+/* Vertical override */
+.scroll-view[data-scroll-axis="vertical"] .scroll-track {
+    animation-name: scroll-infinite-vertical;
+}
+
+@keyframes scroll-infinite-vertical {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-50%); }
+}
+
+.scroll-view:hover .scroll-track {
+    animation-play-state: paused;
+}
+
+
+/* =========================================================
+ CONTROL GROUP
+ ========================================================= */
+.ctrl-group {
+    display: inline-flex;
+    align-items: stretch;
+    gap: 0;
+}
+
+/* =========================================================
+ INTERACTION STATES — MENU-DROPDOWN
+ ========================================================= */
+
+/* Remove hover background on entire group */
+.menu-dropdown .ctrl-group:hover {
+    background: transparent;
+}
+
+/* Focus-visible accessibility consistency */
+.menu-dropdown .ctrl-group button.btn:focus-visible {
+    outline: 2px solid AccentColor;
+    position: relative;
+    z-index: 2;
+}
+
+/* ===== CONTROL GROUP DIVIDER ===== */
+.ctrl-group hr {
+    border: none;
+    border-left: 1px solid var(--divider);
+    margin: 0 0.5rem;
+    width: 0;          /* prevents background fill */
+    height: auto;      /* stretch vertically */
+    align-self: stretch;
+}
+
+/* =========================================================
+ CONTROL GROUP — BORDER MERGE LOGIC (FINAL CLEAN VERSION)
+ ========================================================= */
+
+/* Reset stray borders on wrapper menus */
+.ctrl-group > .menu:not(.menu-dropdown) {
+    border: none;
+    /*  border-radius: 0 !important;*/
+}
+
+/* Base: non-first direct children lose left border */
+.ctrl-group.btn-bordered > *:not(:first-child) {
+    border-left: none;
+}
+
+/* Regular menu (single btn-menu) */
+.ctrl-group.btn-bordered > .menu:not(:first-child) > .btn-menu {
+    border-left: none;
+}
+.ctrl-group.btn-bordered > .menu:not(:last-child) > .btn-menu {
+    border-right: 1px solid var(--accent);
+}
+
+/* Menu-group (multi-button) */
+.ctrl-group.btn-bordered > .menu:not(:first-child) > .menu-group > *:first-child {
+    border-left: none;
+}
+.ctrl-group.btn-bordered > .menu:not(:last-child) > .menu-group > *:last-child {
+    border-right: 1px solid var(--accent);
+}
+/* Middle menu-groups */
+.ctrl-group.btn-bordered > .menu:not(:first-child):not(:last-child) > .menu-group > *:first-child {
+    border-left: none;
+}
+.ctrl-group.btn-bordered > .menu:not(:first-child):not(:last-child) > .menu-group > *:last-child {
+    border-right: 1px solid var(--accent);
+}
+
+/* Merge continuity between menus and controls */
+.ctrl-group.btn-bordered > .menu + * {
+    border-left: none;
+}
+
+/* =========================================================
+ CONTROL GROUP — CORNER RADIUS SYSTEM (FINAL CLEAN VERSION)
+ ========================================================= */
+
+/*/* Remove rounding between internal siblings */*/
+.ctrl-group:not(.menu-dropdown *) > :not(:first-child):not(:last-child) {
+    border-radius: 0;
+}
+
+/* Base flattening for single buttons and btn-menus */
+.ctrl-group > *:first-child,
+.ctrl-group > .menu:first-child > .btn-menu {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.ctrl-group > *:last-child,
+.ctrl-group > .menu:last-child > .btn-menu {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* Menu-group (multi-button menus) */
+.ctrl-group > .menu:first-child > .menu-group > *:last-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.ctrl-group > .menu:last-child > .menu-group > *:first-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* Normalize ctrl-group layout inside navbars */
+.navbar .ctrl-group,
+.navbar .ctrl-group * {
+    align-items: center;
+    vertical-align: middle;
+    line-height: normal;
+    height: auto;
+}
+
+/* Prevent flex stretching in nav-inner context */
+.nav-inner > li > .ctrl-group {
+    align-self: center;
+}
+
+/* =========================================================
+ CONTROL GROUP — SHAPE ON OUTER CORNERS (buttons + inputs)
+ Apply shape class to .ctrl-group (circle intentionally ignored)
+ ========================================================= */
+
+/* Radius tokens from shape utilities */
+.ctrl-group.ctrl-capsule { --group-radius: 9999px; }
+.ctrl-group.ctrl-rounded { --group-radius: 0.375rem; } /* default */
+.ctrl-group.ctrl-rect    { --group-radius: 0; }
+
+/* --- Direct children that are controls --- */
+.ctrl-group:is(.ctrl-capsule, .ctrl-rounded, .ctrl-rect)
+> :is(button, .btn, input, .search-input, .search-button):first-child {
+    border-top-left-radius: var(--group-radius) !important;
+    border-bottom-left-radius: var(--group-radius) !important;
+}
+.ctrl-group:is(.ctrl-capsule, .ctrl-rounded, .ctrl-rect)
+> :is(button, .btn, input, .search-input, .search-button):last-child {
+    border-top-right-radius: var(--group-radius) !important;
+    border-bottom-right-radius: var(--group-radius) !important;
+}
+
+/* --- Menu wrappers ------------------------------------------------------ */
+/* Single-button menu */
+.ctrl-group:is(.ctrl-capsule, .ctrl-rounded, .ctrl-rect)
+> .menu:first-child > .btn-menu {
+    border-top-left-radius: var(--group-radius) !important;
+    border-bottom-left-radius: var(--group-radius) !important;
+}
+.ctrl-group:is(.ctrl-capsule, .ctrl-rounded, .ctrl-rect)
+> .menu:last-child > .btn-menu {
+    border-top-right-radius: var(--group-radius) !important;
+    border-bottom-right-radius: var(--group-radius) !important;
+}
+
+/* Multi-button menu-group */
+.ctrl-group:is(.ctrl-capsule, .ctrl-rounded, .ctrl-rect)
+> .menu:first-child > .menu-group > *:first-child {
+    border-top-left-radius: var(--group-radius) !important;
+    border-bottom-left-radius: var(--group-radius) !important;
+}
+.ctrl-group:is(.ctrl-capsule, .ctrl-rounded, .ctrl-rect)
+> .menu:last-child > .menu-group > *:last-child {
+    border-top-right-radius: var(--group-radius) !important;
+    border-bottom-right-radius: var(--group-radius) !important;
+}
+
+/* --- Search-form wrappers ---------------------------------------------- */
+/* Left outer corner lives on input */
+.ctrl-group:is(.ctrl-capsule, .ctrl-rounded, .ctrl-rect)
+> .search-form:first-child :is(.search-input, input):first-child {
+    border-top-left-radius: var(--group-radius) !important;
+    border-bottom-left-radius: var(--group-radius) !important;
+}
+/* Right outer corner lives on button */
+.ctrl-group:is(.ctrl-capsule, .ctrl-rounded, .ctrl-rect)
+> .search-form:last-child :is(.search-button, button):last-child {
+    border-top-right-radius: var(--group-radius) !important;
+    border-bottom-right-radius: var(--group-radius) !important;
+}
+
+/* =========================================================
+ CTRL-GROUP — FORCE INNER CORNERS FLAT (menus + inputs)
+ ========================================================= */
+
+/* Generic flattening */
+.ctrl-group > *:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.ctrl-group > *:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* --- Menu wrappers ------------------------------------------------------ */
+/* Single-button menu (.btn-menu) */
+.ctrl-group > .menu:not(:last-child) > .btn-menu {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.ctrl-group > .menu:not(:first-child) > .btn-menu {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* Multi-button menu (.menu-group) */
+.ctrl-group > .menu:not(:last-child) > .menu-group > *:last-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.ctrl-group > .menu:not(:first-child) > .menu-group > *:first-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* --- Search-form wrappers ---------------------------------------------- */
+/* Flatten right edge when search-form not last */
+.ctrl-group > .search-form:not(:last-child)
+:is(.search-button, button):last-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+/* Flatten left edge when search-form not first */
+.ctrl-group > .search-form:not(:first-child)
+:is(.search-input, input):first-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+
+.segmented-control {
+    font-weight: 400;
+    font-size: var(--font-size);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20px;
+    padding: 2px;
+    gap: 2px;
+    user-select: none;
+
+    background-color: var(--bg-secondary-blur);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+
+    /* Reserve font metrics for both weights */
+    font-synthesis: none;
+    font-display: swap;
+    text-rendering: optimizeLegibility;
+}
+
+/* Active button */
+.segmented-control button.segment.active {
+    background: var(--segmented-active-bg);
+    --font-weight: 600;
+    font-weight: var(--font-weight);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.segmented-control button.segment:hover:not(.active) {
+   background: transparent;
+}
+
+/* Pressed feedback */
+.segmented-control button.segment.btn:active {
+    background: var(--bg-tertiary);
+}
+
+/* Focus-visible for keyboard nav */
+.segmented-control button.segment:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Scoped reset for buttons */
+.segmented-control button.segment {
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+    padding: 8px 18px;
+    border-radius: 18px;
+    font-size: inherit;
+    font-weight: 400;
+    --fg: unset;
+    color: var(--fg);
+    line-height: 1.2;
+    transition: background 0.2s ease, color 0.2s ease; /* no font-weight transition */
+    background: transparent;
+    white-space: nowrap;
+}
+
+
+/* ---------------------------------------------------------
+ BLUR EDGES
+ --------------------------------------------------------- */
+
+.blur-edge {
+  position: relative;
+  backdrop-filter: blur(var(--blur-radius, 20px));
+  -webkit-backdrop-filter: blur(var(--blur-radius, 20px));
+}
+
+.blur-edge-top {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black var(--blur-edge-size, 20%)
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black var(--blur-edge-size, 20%)
+  );
+}
+
+.blur-edge-bottom {
+  -webkit-mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    black var(--blur-edge-size, 20%)
+  );
+  mask-image: linear-gradient(
+    to top,
+    transparent 0%,
+    black var(--blur-edge-size, 20%)
+  );
+}
+
+.blur-edge-leading {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black var(--blur-edge-size, 20%)
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black var(--blur-edge-size, 20%)
+  );
+}
+
+.blur-edge-trailing {
+  -webkit-mask-image: linear-gradient(
+    to left,
+    transparent 0%,
+    black var(--blur-edge-size, 20%)
+  );
+  mask-image: linear-gradient(
+    to left,
+    transparent 0%,
+    black var(--blur-edge-size, 20%)
+  );
+}
+
+.blur-edge-horizontal {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black var(--blur-edge-size, 20%),
+    black calc(100% - var(--blur-edge-size, 20%)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black var(--blur-edge-size, 20%),
+    black calc(100% - var(--blur-edge-size, 20%)),
+    transparent 100%
+  );
+}
+
+.blur-edge-vertical {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black var(--blur-edge-size, 20%),
+    black calc(100% - var(--blur-edge-size, 20%)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black var(--blur-edge-size, 20%),
+    black calc(100% - var(--blur-edge-size, 20%)),
+    transparent 100%
+  );
+}
+
+.blur-edge-all {
+  -webkit-mask-image:
+    linear-gradient(to right,
+      transparent 0%,
+      black var(--blur-edge-size),
+      black calc(100% - var(--blur-edge-size)),
+      transparent 100%
+    ),
+    linear-gradient(to bottom,
+      transparent 0%,
+      black var(--blur-edge-size),
+      black calc(100% - var(--blur-edge-size)),
+      transparent 100%
+    );
+  -webkit-mask-composite: intersect;
+  mask-composite: intersect;
+}
+
+
+/* ------------------------------------------
+   Raptor Form Layout — Leading Label Version
+   ------------------------------------------ */
+
+/* Form is a simple vertical block */
+.form {
+    display: block;
+    height: max-content;
+}
+
+/* ========== FIELD ROW ========== */
+
+/* Only leading-label layout uses 2-column per-field grid */
+.form.form-leading .form-field {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    column-gap: 1rem;
+    align-items: center;
+}
+
+.field-label {
+    line-height: 1;
+}
+
+/* Label is right-aligned and doesn't wrap */
+.field-label label {
+    font-size: 1rem;
+    white-space: nowrap;
+    text-align: right;
+}
+
+/* Input column */
+.form input,
+.form textarea {
+    min-height: 2.5em;
+    border: 1px solid var(--border, transparent);
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+}
+
+.form button {
+    min-height: 2.5em;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 0 0.75em;
+}
+
+/* ========== BUTTON ALIGNMENT ========== */
+
+/* Button aligns with input ONLY in form-leading (flattened grid) */
+.form.form-leading > button {
+    grid-column: 2;
+    justify-self: start;
+    width: auto;
+}
+
+/* ------------------------------------------
+   Leading Form Style (full alignment)
+   ------------------------------------------ */
+
+.form.form-leading {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    grid-row-gap: var(--form-field-spacing, 1rem);
+    align-items: center;
+}
+
+/* Each .field unwraps its children into the parent grid */
+.form.form-leading > .form-field {
+    display: contents;
+}
+
+/* Label column — right aligned */
+.form.form-leading .field-label {
+    text-align: right;
+}
+
+.form.form-leading .field-label label {
+    white-space: nowrap;
+    padding-right: 1rem;
+}
+
+/* Button aligns with inputs */
+.form.form-leading > button {
+    grid-column: 2;
+    justify-self: start;
+    width: auto;
+}
+
+/* ------------------------------------------
+   Raptor Form Layout — Top Label Version
+   ------------------------------------------ */
+
+.form.form-top {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--form-field-spacing, 1rem);
+}
+
+/* Field block */
+.form.form-top .form-field {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-items: stretch;
+    width: 100%;
+    gap: 0.5rem;
+}
+
+/* Label above input */
+.form.form-top .field-label label {
+    font-size: 1rem;
+    white-space: normal;
+}
+
+/* Button aligns left with the inputs */
+.form.form-top > button {
+    align-self: flex-start;
+}
+
+.form.form-top > * {
+    width: 100%;
+}
+
+/* ------------------------------------------
+   FORM GRID LAYOUT (scoped, non-breaking)
+   ------------------------------------------ */
+
+.form.grid {
+    gap: var(--form-field-spacing, 1rem);
+}
+
+.form.grid .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Buttons auto-align to their grid cell */
+.form.grid > button {
+    justify-self: start;
+}
+
+.form.grid > * {
+    width: 100%;
+}
+
+/* Hide label visually and from layout */
+.field-label-hidden label,
+.form-hidden-labels .field-label label {
+    display: none;
+}
+
+/* Collapse field grid layout */
+form.grid.form-hidden-labels .field-label {
+    display: none;
+}
+
+.form-control::placeholder {
+    color: gray;
+    opacity: 1;
+}
+
+.subscribe-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--form-field-spacing, 1rem);
+}
+
+
+/* =========================================================
+ DROPDOWN MENU COMPONENT (TOKEN-COMPATIBLE)
+ ========================================================= */
+
+/* --- Base Menu Container --- */
+.menu {
+    position: relative;
+    display: inline-block;
+}
+
+.btn-menu {
+    height: 100%;
+}
+
+/* --- Dropdown Container --- */
+.menu-dropdown {
+    display: none;
+    position: absolute;
+    min-width: 200px;
+    top: 100%;
+    left: 0;
+    list-style: none;
+    margin: 0.25rem 0 0 0;
+    z-index: 2;
+    width: max-content;
+    border-radius: 25px;
+    border: 1px solid var(--border);
+    opacity: 0;
+    padding: 0.75rem 0.75rem 0.75rem 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    /* Animation + transforms */
+    --alignment-transform: none;
+    --anim-transform-hidden: scale(0.95);
+    --anim-transform-visible: scale(1);
+    --anim-transform-base: var(--anim-transform-hidden);
+    --anim-transform-effective: var(--alignment-transform) var(--anim-transform-base);
+    transform: var(--anim-transform-effective);
+    transform-origin: var(--anim-transform-origin, top center);
+    transition: opacity var(--anim-duration, 0.15s) cubic-bezier(0.4, 0, 0.2, 1),
+    transform var(--anim-duration, 0.15s) cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Button variable defaults */
+    --btn-bg: transparent;
+    --btn-fg: var(--fg);
+    --btn-border: none;
+    --btn-hover-bg: var(--accent-tertiary);
+    --btn-active-bg: var(--accent-quaternary);
+}
+
+/* --- Open State --- */
+.menu-dropdown[data-show="true"] {
+    display: block;
+    opacity: 1;
+    --anim-transform-base: var(--anim-transform-visible);
+    --anim-transform-effective: var(--alignment-transform) var(--anim-transform-base);
+    transform: var(--anim-transform-effective);
+}
+
+/* =========================================================
+ MENU ITEM STRUCTURE
+ ========================================================= */
+
+.menu-dropdown,
+.menu-dropdown * {
+    color: inherit;
+}
+
+/* --- Links --- */
+.menu-dropdown a {
+    display: block;
+    text-decoration: none;
+}
+
+/*/* --- Generic Children --- */*/
+.menu-dropdown > *,
+.menu-dropdown li > * {
+    display: block;
+}
+
+.menu-dropdown > li {
+    list-style: none;
+}
+
+/* --- Divider --- */
+.menu-dropdown hr {
+    border: none;
+    border-top: 1px solid var(--divider, color-mix(in srgb, var(--fg) 15%, transparent));
+    opacity: var(--divider-opacity, 1);
+    margin: 0.25rem 0; /* Add vertical spacing */
+}
+
+/* =========================================================
+ MENU GROUP (SPLIT BUTTON)
+ ========================================================= */
+
+.menu-group {
+    display: inline-flex;
+    height: 100%;
+    background: transparent;
+    border: none;
+}
+
+.menu-group-action {
+    flex: 1;
+}
+
+.menu-group > .menu-group-action {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+    padding-right: 0.2em;
+}
+
+.menu-group > .menu-group-toggle {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding-left: 0.2rem;
+    border-left: none;
+}
+
+/* --- Focus --- */
+.menu-group > button:focus-visible {
+    position: relative;
+    z-index: 3;
+    outline: 2px solid AccentColor;
+}
+
+/* =========================================================
+ ALIGNMENT VARIANTS (TOP, BOTTOM, LEADING, ETC.)
+ ========================================================= */
+
+.menu.dropdown-align-top > .menu-dropdown {
+    inset: auto auto 100% 50%;
+    --alignment-transform: translateX(-50%);
+    margin-bottom: 0.25rem;
+}
+
+.menu.dropdown-align-bottom > .menu-dropdown {
+    top: 100%;
+    left: 50%;
+    --alignment-transform: translateX(-50%);
+    transform-origin: top center;
+    margin-top: 0.25rem;
+}
+
+.menu.dropdown-align-leading > .menu-dropdown {
+    inset: 50% 100% auto auto;
+    --alignment-transform: translateY(-50%);
+    margin-right: 0.25rem;
+}
+
+.menu.dropdown-align-trailing > .menu-dropdown {
+    inset: 50% auto auto 100%;
+    --alignment-transform: translateY(-50%);
+    margin-left: 0.25rem;
+}
+
+.menu.dropdown-align-topLeading > .menu-dropdown {
+    inset: auto auto 100% 0;
+    margin-bottom: 0.25rem;
+}
+
+.menu.dropdown-align-topTrailing > .menu-dropdown {
+    inset: auto 0 100% auto;
+    margin-bottom: 0.25rem;
+}
+
+.menu.dropdown-align-bottomLeading > .menu-dropdown {
+    inset: 100% auto auto 0;
+    margin-top: 0.25rem;
+}
+
+.menu.dropdown-align-bottomTrailing > .menu-dropdown {
+    inset: 100% 0 auto auto;
+    margin-top: 0.25rem;
+}
+
+.menu.dropdown-align-center > .menu-dropdown {
+    inset: 50% auto auto 50%;
+    --alignment-transform: translate(-50%, -50%);
+    margin: 0;
+}
+
+/* =========================================================
+ NESTED MENUS — ALIGNMENT + CONSISTENCY
+ ========================================================= */
+
+.menu-dropdown > li > .menu {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    border: solid transparent;
+}
+
+.menu-dropdown > li > .menu > [data-toggle="dropdown"] {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    border: none !important;
+    font: inherit;
+    text-align: left;
+    corner-shape: var(--btn-corner-shape, superellipse(1.25));
+}
+
+.menu-dropdown > li > .menu > .menu-dropdown {
+    top: 0;
+    left: 100%;
+    margin-left: 0.25rem;
+}
+
+/* =========================================================
+ SPLIT MENUS INSIDE DROPDOWN — ITEM STYLING
+ ========================================================= */
+
+.menu-dropdown .menu-group > .menu-group-action {
+    flex: 3;
+    width: 100%;
+    justify-content: flex-start;
+    text-align: left;
+    border: none;
+    align-items: center;
+    display: flex;
+    gap: var(--ctrl-gap, 0.5rem);
+}
+
+.menu-dropdown .menu-group > .menu-group-toggle {
+    flex: 1;
+}
+
+/* =========================================================
+ CARET / CARROT ICONS
+ ========================================================= */
+
+.menu-dropdown .menu-group > .menu-group-toggle.btn {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    text-align: center;
+    border-left: 1px solid var(--divider, color-mix(in srgb, var(--fg) 15%, transparent));
+}
+
+.menu:not(.carrot-up):not(.carrot-left):not(.carrot-right):not(.carrot-down)
+.menu-group-toggle::after {
+    content: "▾"; /* default caret */
+}
+
+/* Direction overrides */
+.menu-dropdown .menu.carrot-up .menu-group-toggle::after { content: "▴"; }
+.menu-dropdown .menu.carrot-down .menu-group-toggle::after { content: "▾"; }
+.menu-dropdown .menu.carrot-left .menu-group-toggle::after { content: "◂"; }
+.menu-dropdown .menu.carrot-right .menu-group-toggle::after { content: "▸"; }
+
+.menu.carrot-up .menu-group-toggle::after { content: "▴"; }
+.menu.carrot-down .menu-group-toggle::after { content: "▾"; }
+.menu.carrot-left .menu-group-toggle::after { content: "◂"; }
+.menu.carrot-right .menu-group-toggle::after { content: "▸"; }
+
+/* =========================================================
+ MISC — MARGIN ADJUSTMENTS
+ ========================================================= */
+
+.menu-dropdown[data-align="left"] {
+    margin-left: 0;
+    margin-right: 5px; /* gap when flipped */
+}
+
+/* =========================================================
+ INTELLIGENT FOCUS RING (MATCHES HOVER CORNERS)
+ ========================================================= */
+
+.menu-dropdown :is(a, button.btn):focus-visible {
+    --focus-outline-width: 2px;
+    outline: 2px solid AccentColor;
+    outline-offset: -2px;
+    background: var(--accent-tertiary);
+    position: relative;
+    z-index: 2;
+    border: 0;
+}
+
+/* Minimal visual style update to .menu-dropdown */
+
+.menu-dropdown button,
+.menu-dropdown li > button,
+.menu-dropdown > li > a {
+    display: inline-flex;
+    justify-content: flex-start;
+    text-align: start;
+    width: 100%;
+
+    color: inherit;
+    border: none !important;
+    border-radius: var(--dropdown-item-corner-radius, 9999px);
+    font: inherit;
+    corner-shape: var(--btn-corner-shape, superellipse(1.25));
+
+    --btn-bg: transparent;
+    --btn-fg: var(--dropdown-hover-fg);
+    --btn-hover-bg: var(--dropdown-hover-bg);
+    --btn-active-bg: var(--dropdown-hover-bg);
+}
+
+.menu-dropdown > li:not(:last-child) {
+    margin-bottom: 0.25em; /* adjust to taste (e.g. 0.2rem–0.4rem) */
+}
+
+.menu-dropdown li > *:not(hr) {
+    padding: 0.5em 1em;
+}
+
+/* =========================================================
+  CONTROL GROUPS INSIDE DROPDOWNS — ROUNDED RECTS
+  ========================================================= */
+
+/* Capsule corners only when menu-group is inside a menu dropdown */
+.menu-dropdown .menu-group > .menu-group-action {
+  border-top-left-radius: var(--dropdown-item-corner-radius, 9999px);
+  border-bottom-left-radius: var(--dropdown-item-corner-radius, 9999px);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.menu-dropdown .menu-group > .menu-group-toggle {
+  border-top-right-radius: var(--dropdown-item-corner-radius, 9999px);
+  border-bottom-right-radius: var(--dropdown-item-corner-radius, 9999px);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Icon on the right ONLY for .menu-dropdown items NOT in .ctrl-group */
+.menu-dropdown button.btn:has(> .btn-icon):not(.ctrl-group .btn),
+.menu-dropdown .menu-group-action.btn:has(> .btn-icon):not(.ctrl-group .btn) {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  gap: var(--ctrl-gap, 0.5rem);
+}
+
+.menu-dropdown .ctrl-group {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    width: 100%;
+    margin: 0;
+    padding: 0; /* edge-to-edge alignment */
+    border-radius: 0;
+}
+
+/* Control items */
+.menu-dropdown .ctrl-group > * {
+    flex: 1 1 auto;
+    margin: 0;
+    border-radius: 15px;
+    padding-top: 0.75rem;   /* match dropdown link vertical rhythm */
+    padding-bottom: 0.75rem;
+}
+
+/* For buttons inside control groups within dropdowns */
+.menu-dropdown .ctrl-group .btn {
+    display: flex;
+    flex-direction: column;   /* icon above label */
+    text-align: center;
+    line-height: 1.2;
+    border-radius: var(--dropdown-item-corner-radius, 0.5rem);
+    --btn-bg: transparent;
+    --btn-fg: var(--dropdown-hover-fg);
+    --btn-hover-bg: var(--dropdown-hover-bg);
+    --btn-active-bg: var(--dropdown-hover-bg);
+}
+
+.menu-dropdown .menu > button,
+.menu-dropdown .menu > .menu-group > button {
+    --btn-bg: transparent;
+    --btn-fg: var(--dropdown-hover-fg);
+    --btn-hover-bg: var(--dropdown-hover-bg);
+    --btn-active-bg: var(--dropdown-hover-bg);
+}
+
+
+/* =========================================================
+ INTERACTION STATES
+ ========================================================= */
+
+/* --- Hover / Active / Focus --- */
+.menu-dropdown a:hover,
+.menu-dropdown a:focus-visible,
+.menu-dropdown button:hover,
+.menu-dropdown button:focus-visible {
+    background: var(--dropdown-hover-bg);
+}
+
+.menu-dropdown a:active,
+.menu-dropdown button:active {
+    background: var(--dropdown-active-bg);
+}
+
+.menu-dropdown a:focus {
+    outline: none;
+}
+
+.menu-dropdown a:focus-visible {
+    outline: 2px solid AccentColor;
+}
+
+/* --- Active (Current Page) --- */
+.menu-dropdown a[data-active="true"] {
+    background: var(--dropdown-hover-bg);
+    font-weight: 600;
+    color: var(--dropdown-hover-fg, var(--fg));
+}
+
+.menu-dropdown .ctrl-group .btn-icon {
+    margin-left: 0;
+    margin-bottom: 0.35em;
+}
+
+.menu-dropdown .ctrl-group .btn-label,
+.menu-dropdown .btn-label {
+    margin-left: 0;
+}
+
+/* Make dropdown menu header stretch across width */
+.menu-group,
+.menu-group .menu-group-action {
+    width: 100%;
+}
+
+
+.grid {
+    display: grid;
+    grid-template-columns: var(--grid-template);
+}
+
+.grid > .grid-item {
+    min-width: 0;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(var(--adaptive-min), 1fr));
+    }
+}
+
+.full-width-grid-item {
+    grid-column: 1 / -1;
+}
+
+
+/* === Base Navbar === */
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-width: max-content;
+    padding-block: 1rem;
+    z-index: 2001;
+    line-height: 1;
+}
+
+/* === Inner Layout === */
+.nav-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    width: 100%;
+    padding-block: 0.5em;
+    padding-inline: 1em;
+}
+
+/* Ensure all children behave as inline flex */
+.nav-inner > * {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+/* === Logo === */
+.nav-logo {
+    flex-shrink: 0;
+    font-weight: bold;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* === Navigation Items === */
+.nav-items,
+.nav-item {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    order: var(--nav-items-order, 1);
+}
+
+/* === Toggle Button === */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+}
+
+/* === Alignment Helpers === */
+.align-leading  { justify-content: flex-start; }
+.align-center   { justify-content: center; }
+.align-trailing { justify-content: flex-end; }
+
+/* === Mobile Collapse === */
+@media (max-width: 768px) {
+    .nav-inner {
+        flex-wrap: wrap;
+    }
+    .nav-toggle {
+        display: block;
+    }
+    .nav-items {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+    .nav-items[data-open="true"] {
+        display: flex;
+    }
+}
+
+/* === Width Modes === */
+.navbar.nav-width-viewport > .nav-inner,
+.nav-width-viewport .navbar > .nav-inner {
+    width: 100%;
+    margin-inline: 0;
+    padding-inline: 1rem;
+}
+
+/* Full bleed inside constrained parents */
+.nav-width-viewport {
+    width: 100dvw;
+    margin-inline: calc(50% - 50dvw);
+}
+
+.navbar > a,
+.navbar a {
+    text-decoration: none;
+    color: var(--fg);
+}
+
+/* Make <li> that contains .spacer flex + grow */
+.nav-inner > li:has(.spacer) {
+  flex: 1 1 auto;
+  display: flex;
+}
+
+/* Let the spacer itself expand fully */
+.nav-inner > li:has(.spacer) > .spacer {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+header.fixed-top {
+    z-index: 1000;
+}
+
+header.fixed-top * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Safari fix: Forces GPU layer for backdrop-filter inside fixed elements to prevent
+   rendering artifacts during overscroll bounce */
+header.fixed-top > nav.navbar[class*="material-"] {
+    transform: translateZ(0);
+    will-change: backdrop-filter;
+    position: relative;
+}
+
+header.fixed-top .navbar {
+    padding-inline: var(--nav-padding, 1rem);
+}
+
+.nav-width-content {
+    width: 100%;
+    margin-inline: auto;
+    max-width: 100%;
+}
+
+/* sm */
+@media (min-width: 575px) {
+    .nav-width-content {
+        max-width: var(--content-max-width, 575px);
+    }
+}
+
+/* md */
+@media (min-width: 768px) {
+    .nav-width-content {
+        max-width: var(--content-max-width, 768px);
+    }
+}
+
+/* lg */
+@media (min-width: 1024px) {
+    .nav-width-content {
+        max-width: var(--content-max-width, 1024px);
+    }
+}
+
+/* xl */
+@media (min-width: 1440px) {
+    .nav-width-content {
+        max-width: var(--content-max-width, 1440px);
+    }
+}
+
+
+/* --------------------------------------------- */
+/* TABLE ROOT                                     */
+/* --------------------------------------------- */
+table {
+    --table-bg: transparent;
+    --table-row-bg: transparent;
+
+    /* Stripe colors are relative to text color */
+    --table-stripe-bg: color-mix(in srgb, currentColor 7.5%, transparent);
+    --table-separator-color: color-mix(in srgb, currentColor 20%, transparent);
+
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--table-bg);
+}
+
+/* --------------------------------------------- */
+/* BASE CELL STYLE                                */
+/* --------------------------------------------- */
+table td {
+    padding: 0.6rem 0.75rem;
+}
+
+table td,
+table th {
+    background: var(--table-row-bg);
+    transition: background 0.18s ease;
+}
+
+/* Force headers left-aligned */
+table th {
+    padding: 0;
+    text-align: left;
+}
+
+/* Make header content fill the entire cell box */
+table th > * {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0.6rem 0.75rem;
+}
+
+/* --------------------------------------------- */
+/* SEPARATORS (optional)                          */
+/* --------------------------------------------- */
+table:not([data-table-separators="false"]) td,
+table:not([data-table-separators="false"]) th {
+    border-bottom: 1px solid var(--table-separator-color);
+}
+
+/* --------------------------------------------- */
+/* STRIPED ROWS — rounded only on row edges      */
+/* --------------------------------------------- */
+.table-striped-rows tbody tr:nth-of-type(odd) td,
+.table-striped-rows tbody tr:nth-of-type(odd) th {
+    background: var(--table-stripe-bg);
+}
+
+/* Rounded LEFT corners of striped rows */
+.table-striped-rows tbody tr:nth-of-type(odd) td:first-child,
+.table-striped-rows tbody tr:nth-of-type(odd) th:first-child {
+    border-top-left-radius: var(--table-cell-radius);
+    border-bottom-left-radius: var(--table-cell-radius);
+}
+
+/* Rounded RIGHT corners of striped rows */
+.table-striped-rows tbody tr:nth-of-type(odd) td:last-child,
+.table-striped-rows tbody tr:nth-of-type(odd) th:last-child {
+    border-top-right-radius: var(--table-cell-radius);
+    border-bottom-right-radius: var(--table-cell-radius);
+}
+
+/* --------------------------------------------- */
+/* STRIPED COLUMNS — rounded only on table edges */
+/* --------------------------------------------- */
+
+/* Alternating column backgrounds */
+.table-striped-columns td:nth-child(even),
+.table-striped-columns th:nth-child(even) {
+    background: var(--table-stripe-bg);
+}
+
+/* ------------------------------------------------------ */
+/* CASE 1: TABLE HAS HEADER (.header-table present)       */
+/* ------------------------------------------------------ */
+
+/* Rounded TOP corners belong to the header, not the rows */
+.header-table.table-striped-columns thead th:nth-child(even) {
+    border-top-left-radius: var(--table-cell-radius);
+    border-top-right-radius: var(--table-cell-radius);
+}
+
+/* Ensure data rows DO NOT receive top rounding */
+.header-table.table-striped-columns tbody tr:first-child td:nth-child(even) {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+/* Rounded BOTTOM corners still apply to last striped cell */
+.header-table.table-striped-columns tbody tr:last-child td:nth-child(even) {
+    border-bottom-left-radius: var(--table-cell-radius);
+    border-bottom-right-radius: var(--table-cell-radius);
+}
+
+/* ------------------------------------------------------ */
+/* CASE 2: TABLE HAS NO HEADER (normal table)             */
+/* ------------------------------------------------------ */
+
+/* First striped data row should get TOP rounding */
+.table-striped-columns:not(.header-table)
+tbody tr:first-child td:nth-child(even) {
+    border-top-left-radius: var(--table-cell-radius);
+    border-top-right-radius: var(--table-cell-radius);
+}
+
+/* Last striped data row: bottom corners */
+.table-striped-columns:not(.header-table)
+tbody tr:last-child td:nth-child(even) {
+    border-bottom-left-radius: var(--table-cell-radius);
+    border-bottom-right-radius: var(--table-cell-radius);
+}
+
+/* Remove last separator */
+table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* --------------------------------------------- */
+/* FILTER INPUT                                   */
+/* --------------------------------------------- */
+.filter-field {
+    width: 100%;
+    min-height: 2.5em;
+    box-sizing: border-box;
+}
+
+
+/* ------------------------------------------ */
+/* LIST ITEM OUTER CONTAINER (marker layer)   */
+/* ------------------------------------------ */
+.list .list-row {
+    display: block;
+    list-style: none;
+    position: relative;
+    padding-left: 1.75em; /* marker space only */
+    background: var(--list-row-bg);
+    margin-bottom: var(--list-row-spacing);
+
+    border-top: var(--list-row-border-top);
+    border-bottom: var(--list-row-border-bottom);
+    border-left: var(--list-row-border-leading);
+    border-right: var(--list-row-border-trailing);
+
+    border-top-left-radius: var(--list-row-radius-top-leading);
+    border-top-right-radius: var(--list-row-radius-top-trailing);
+    border-bottom-left-radius: var(--list-row-radius-bottom-leading);
+    border-bottom-right-radius: var(--list-row-radius-bottom-trailing);
+}
+
+/* Marker (offset by per-side padding) */
+.list .list-row::before {
+    position: absolute;
+    left: var(--list-row-padding-left, 0);
+    top:  var(--list-row-padding-top, 0);
+}
+
+/* ------------------------------------------ */
+/* INNER ROW WRAPPER — full styling           */
+/* ------------------------------------------ */
+.list .list-row > .list-row-content {
+    padding-top: var(--list-row-padding-top);
+    padding-right: var(--list-row-padding-right);
+    padding-bottom: var(--list-row-padding-bottom);
+    padding-left: var(--list-row-padding-left);
+}
+
+/* ------- ORDERED LISTS ------- */
+.list-ordered {
+    counter-reset: list-item 1;
+}
+
+.list-ordered > .list-row {
+    counter-increment: list-item;
+}
+
+.list-ordered > .list-row::before {
+    content: counter(list-item, var(--list-style-type)) ".";
+}
+
+/* ------- UNORDERED LISTS ------- */
+.list-unordered > .list-row::before {
+    content: var(--list-marker-content, "•");
+}
+
+/* ------- CUSTOM MARKERS ------- */
+.list-custom > .list-row::before {
+    content: var(--list-marker-content);
+}
+
+
+/* =========================================================
+ BUTTON SYSTEM (VARIABLE-DRIVEN & NESTING-SAFE)
+ ========================================================= */
+
+/* --- Reset --- */
+button, a.btn {
+    appearance: none;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    --btn-hover-bg: var(--accent-quaternary);
+    --btn-active-bg: var(--accent-quinary);
+    --btn-hover-border: 1px solid var(--accent-quaternary);
+    --btn-active-border: 1px solid var(--accent-quinary);
+}
+
+/* --- Base Button --- */
+button.btn, a.btn {
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    background-color: var(--btn-bg, var(--accent-tertiary));
+    --fg: var(--btn-fg, var(--accent));
+    color: var(--fg);
+    border: var(--btn-border, 1px solid transparent);
+    border-radius: var(--btn-radius, 0.375rem);
+    corner-shape: var(--btn-corner-shape, round);
+
+    font-size: var(--ctrl-font-size, 1em);
+    padding: var(--ctrl-padding, 0.5em 1em);
+}
+
+button.btn > * + * {
+    margin-left: var(--ctrl-gap, 0.5rem);
+}
+
+/* =========================================================
+ TOKENS — VARIANT CONTAINERS
+ ========================================================= */
+
+/* --- Plain --- */
+.btn-plain {
+    --btn-bg: transparent;
+    --btn-fg: var(--fg);
+    --btn-border: none;
+    --btn-hover-bg: transparent;
+    --btn-active-bg: transparent;
+}
+
+/* --- Filled / Prominent --- */
+.btn-prominent,
+.btn-prominent .btn,
+.btn-prominent .search-button {
+    --btn-bg: var(--accent);
+    --fg: var(--fg-dm);
+    --btn-fg: var(--fg-dm);
+    --btn-border: none;
+    --btn-hover-bg: color-mix(in srgb, var(--accent) 92%, black);
+    --btn-active-bg: color-mix(in srgb, var(--accent) 85%, black);
+}
+
+.btn-filled,
+.btn-filled .btn,
+.btn-filled .search-button {
+    --btn-bg: var(--accent-tertiary);
+    --fg: var(--accent);
+    --btn-fg: var(--accent);
+    --btn-border: 1px solid var(--accent-tertiary);
+    --btn-hover-bg: var(--accent-quaternary);
+    --btn-active-bg: var(--accent-quinary);
+    --btn-hover-border: 1px solid var(--accent-quaternary);
+    --btn-active-border: 1px solid var(--accent-quinary);
+}
+
+/* --- Bordered --- */
+.btn-bordered,
+.btn-bordered .btn,
+.btn-bordered .search-button {
+    --btn-bg: transparent;
+    --fg: var(--accent);
+    --btn-fg: var(--accent);
+    --btn-border: 1px solid var(--accent);
+    --btn-hover-bg: var(--accent-tertiary);
+    --btn-active-bg: var(--accent-quaternary);
+    --btn-hover-border: 1px solid color-mix(in srgb, var(--accent) 85%, black);
+    --btn-active-border: 1px solid color-mix(in srgb, var(--accent) 70%, black);
+}
+
+/* --- Borderless --- */
+.btn-borderless,
+.btn-borderless .btn,
+.btn-borderless .search-button {
+    --btn-bg: transparent;
+    --fg: var(--accent);
+    --btn-fg: var(--accent);
+    --btn-border: none;
+    --btn-hover-bg: var(--accent-tertiary);
+    --btn-active-bg: var(--accent-quaternary);
+}
+
+/* =========================================================
+ SHAPE & SIZE TOKENS
+ ========================================================= */
+
+/* Shapes */
+.ctrl-capsule {
+    --btn-radius: 9999px;
+    --btn-corner-shape: round;
+}
+
+.ctrl-rounded {
+    --btn-radius: 0.375rem;
+    --btn-corner-shape: superellipse(1.25);
+}
+
+.ctrl-rect {
+    --btn-radius: 0;
+    --btn-corner-shape: rect;
+}
+
+.ctrl-circle {
+    --btn-radius: 50%;
+    --btn-corner-shape: round;
+    aspect-ratio: 1;
+}
+
+/* Flexible width */
+.btn-flexible,
+.btn-flexible input,
+.btn-flexible button {
+    width: 100%;
+}
+
+/* =========================================================
+ INTERACTION STATES
+ ========================================================= */
+
+/* Hover / Active — variable-based */
+button.btn:hover,
+button.btn:focus-visible,
+a.btn:hover,
+a.btn:focus-visible {
+    background-color: var(--btn-hover-bg, var(--accent-tertiary));
+    border: var(--btn-hover-border, var(--btn-border 1px));
+}
+
+button.btn:active,
+a.btn:active {
+    background-color: var(--btn-active-bg, var(--accent-quaternary));
+    border: var(--btn-active-border, var(--btn-border 1px));
+}
+
+/* Disabled */
+button.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Icon-only */
+button.btn.btn-icon {
+    padding: 0.5rem;
+    aspect-ratio: 1;
+}
+
+/* =========================================================
+ DARK MODE ADJUSTMENTS
+ ========================================================= */
+
+[data-color-scheme="dark"] .btn-prominent {
+    --btn-hover-bg: color-mix(in srgb, var(--accent) 92%, white);
+    --btn-active-bg: color-mix(in srgb, var(--accent) 85%, white);
+}
+
+
+
+
+@font-face {
+    font-family: 'Fonts';
+    src: url('/fonts/fonts.txt');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    size-adjust: 100%;
+    ascent-override: normal;
+    descent-override: normal;
+    line-gap-override: normal;
+}
+
+[data-theme="main-theme"] {
+        --accent: rgb(131 35 158 / 100%);
+}
+
+[data-theme="main-theme"][data-color-scheme="light"] {
+        --accent: rgb(131 35 158 / 100%);
+}
+
+[data-theme="main-theme"][data-color-scheme="dark"] {
+        --accent: rgb(222 105 255 / 100%);
+}
+
+.menu-style-4LVRz {
+        --dropdown-hover-bg: var(--fg-secondary) !important;
+    corner-shape: round !important;
+    border-radius: 27px !important;
+}

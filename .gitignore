@@ -1,7 +1,6 @@
 .DS_Store
 
 # Build output
-Build/
 .build/
 
 # SwiftPM

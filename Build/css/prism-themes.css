@@ -1,0 +1,89 @@
+:root {
+        --highlighter-theme: "xcode";
+}
+
+[data-highlighter-theme="xcode"] {
+        --hl-bg: rgb(249 249 249 / 100%);
+    --hl-plain: rgb(0 0 0 / 100%);
+    --hl-keyword: rgb(170 13 145 / 100%);
+    --hl-type: rgb(92 38 153 / 100%);
+    --hl-function: rgb(63 110 116 / 100%);
+    --hl-variable: rgb(63 110 116 / 100%);
+    --hl-property: rgb(131 108 40 / 100%);
+    --hl-parameter: rgb(63 110 116 / 100%);
+    --hl-string: rgb(196 26 22 / 100%);
+    --hl-number: rgb(28 0 207 / 100%);
+    --hl-comment: rgb(0 116 0 / 100%);
+    --hl-operator: rgb(0 0 0 / 100%);
+    --hl-punctuation: rgb(0 0 0 / 100%);
+    --hl-annotation: rgb(196 26 22 / 100%);
+    --hl-directive: rgb(170 13 145 / 100%);
+    --hl-error: var(--r-red);
+    --hl-unlabeled-parameter: var(--fg);
+    --hl-string-delimiter: var(--fg);
+    --hl-interpolation-delimiter: var(--fg);
+}
+[data-highlighter-theme="xcode"][data-color-scheme="dark"] , [data-color-scheme="dark"] [data-highlighter-theme="xcode"] {
+        --hl-bg: rgb(32 32 37 / 100%);
+    --hl-plain: rgb(248 248 242 / 100%);
+    --hl-keyword: rgb(255 79 163 / 100%);
+    --hl-type: rgb(118 230 255 / 100%);
+    --hl-function: rgb(84 220 252 / 100%);
+    --hl-variable: rgb(248 248 242 / 100%);
+    --hl-property: rgb(249 38 114 / 100%);
+    --hl-parameter: rgb(248 248 242 / 100%);
+    --hl-string: rgb(252 86 97 / 100%);
+    --hl-number: rgb(174 129 255 / 100%);
+    --hl-comment: slategray;
+    --hl-operator: rgb(248 248 242 / 100%);
+    --hl-punctuation: rgb(248 248 242 / 100%);
+    --hl-annotation: rgb(230 219 116 / 100%);
+    --hl-directive: rgb(230 219 116 / 100%);
+    --hl-error: rgb(253 151 31 / 100%);
+    --hl-unlabeled-parameter: var(--fg);
+    --hl-string-delimiter: var(--fg);
+    --hl-interpolation-delimiter: var(--fg);
+}
+
+[data-inline-highlighter-theme="xcode"] {
+        --inline-hl-bg: rgb(249 249 249 / 100%);
+    --inline-hl-plain: rgb(0 0 0 / 100%);
+    --inline-hl-keyword: rgb(170 13 145 / 100%);
+    --inline-hl-type: rgb(92 38 153 / 100%);
+    --inline-hl-function: rgb(63 110 116 / 100%);
+    --inline-hl-variable: rgb(63 110 116 / 100%);
+    --inline-hl-property: rgb(131 108 40 / 100%);
+    --inline-hl-parameter: rgb(63 110 116 / 100%);
+    --inline-hl-string: rgb(196 26 22 / 100%);
+    --inline-hl-number: rgb(28 0 207 / 100%);
+    --inline-hl-comment: rgb(0 116 0 / 100%);
+    --inline-hl-operator: rgb(0 0 0 / 100%);
+    --inline-hl-punctuation: rgb(0 0 0 / 100%);
+    --inline-hl-annotation: rgb(196 26 22 / 100%);
+    --inline-hl-directive: rgb(170 13 145 / 100%);
+    --inline-hl-error: var(--r-red);
+    --inline-hl-unlabeled-parameter: var(--fg);
+    --inline-hl-string-delimiter: var(--fg);
+    --inline-hl-interpolation-delimiter: var(--fg);
+}
+[data-inline-highlighter-theme="xcode"][data-color-scheme="dark"] , [data-color-scheme="dark"] [data-inline-highlighter-theme="xcode"] {
+        --inline-hl-bg: rgb(32 32 37 / 100%);
+    --inline-hl-plain: rgb(248 248 242 / 100%);
+    --inline-hl-keyword: rgb(255 79 163 / 100%);
+    --inline-hl-type: rgb(118 230 255 / 100%);
+    --inline-hl-function: rgb(84 220 252 / 100%);
+    --inline-hl-variable: rgb(248 248 242 / 100%);
+    --inline-hl-property: rgb(249 38 114 / 100%);
+    --inline-hl-parameter: rgb(248 248 242 / 100%);
+    --inline-hl-string: rgb(252 86 97 / 100%);
+    --inline-hl-number: rgb(174 129 255 / 100%);
+    --inline-hl-comment: slategray;
+    --inline-hl-operator: rgb(248 248 242 / 100%);
+    --inline-hl-punctuation: rgb(248 248 242 / 100%);
+    --inline-hl-annotation: rgb(230 219 116 / 100%);
+    --inline-hl-directive: rgb(230 219 116 / 100%);
+    --inline-hl-error: rgb(253 151 31 / 100%);
+    --inline-hl-unlabeled-parameter: var(--fg);
+    --inline-hl-string-delimiter: var(--fg);
+    --inline-hl-interpolation-delimiter: var(--fg);
+}
