@@ -42,10 +42,10 @@ struct Navbar: HTML {
 
 extension String {
     static func docLink(_ destination: String) -> Self {
-        "https://vein.amethystsoft.de/documentation/\(destination)"
+        "https://docs.vein.amethystsoft.de/documentation/\(destination)"
     }
     static func tutorial(_ destination: String = "table-of-contents") -> Self {
-        "https://vein.amethystsoft.de/tutorials/\(destination)"
+        "https://docs.vein.amethystsoft.de/tutorials/\(destination)"
     }
 }
 

@@ -15,15 +15,15 @@ struct RaptorWebsite {
 }
 
 struct ExampleSite: Site {    
-    var name = "Doc Hub"
-    var titleSuffix = " – Amethyst Vein"
+    var name = "Home"
+    var titleSuffix = " - Amethyst Vein"
     var url = URL(static: "https://vein.amethystsoft.de")
     
     nonisolated var themes: [any Theme] = [
         MainTheme()
     ]
     
-    var author = "John Appleseed"
+    var author = "Mia Koring"
 
     var homePage = Home()
     var layout = MainLayout()
