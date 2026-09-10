@@ -17,22 +17,25 @@ struct HighlightRow: HTML {
     }
     
     func mobileRow() -> some HTML {
-        VStack(alignment: .leading) {
-            CodeBlock(.swift) { code }
-                .lineNumberVisibility(.hidden)
-                .cornerRadius(15)
-                .style(.width(.percent(100)))
-            
-            icon.asIconImage()
-            Text(title)
-                .font(.title1).fontWeight(.medium)
-            
-            Text(description)
-                .foregroundStyle(.secondary)
-            
-            Link("Get Started", destination: link)
-                .linkOpenBehavior(.frame("_blank"))
-                .primaryButton()
+        Grid(spacing: 10) {
+            GridRow {
+                CodeBlock(.swift) { code }
+                    .lineNumberVisibility(.hidden)
+                    .cornerRadius(15)
+                
+                VStack {
+                    icon.asIconImage()
+                    Text(title)
+                        .font(.title1).fontWeight(.medium)
+                    
+                    Text(description)
+                        .foregroundStyle(.secondary)
+                    
+                    Link("Get Started", destination: link)
+                        .linkOpenBehavior(.frame("_blank"))
+                        .primaryButton()
+                }
+            }
         }
     }
     

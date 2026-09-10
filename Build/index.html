@@ -166,9 +166,6 @@
     .md\:logoWidth {
         width: 90px;
     }
-}
-    
-@media (min-width: 992px) {
     .lg\:hidden-on-mobile {
         visibility: visible;
         display: flex;
@@ -180,9 +177,13 @@
     }
 }
     
+@media (min-width: 992px) {
+    
+}
+    
     
 </style>
-<div class="pt-2 hstack gap-3"><div class="mt-auto spacer"></div><div class="align-self-center segmented-control" data-persist-selection data-selected-segment="exMs9"><button data-default-selection type="button" class="segment btn" onclick="setColorScheme('dark');"><i alt="circle" class="bi-circle"></i></button><button type="button" class="segment btn" onclick="setColorScheme('light');"><i alt="circle-fill" class="bi-circle-fill"></i></button><button type="button" class="segment btn" onclick="setColorScheme('auto');"><i alt="circle-half" class="bi-circle-half"></i></button></div></div><div class="vstack gap-3" style="text-align: center"><div class="py-5 align-self-center vstack gap-3"><div class="align-self-center hstack" style="gap: 0px"><svg width="542" height="441" viewBox="0 0 542 441" fill="none" xmlns="http://www.w3.org/2000/svg" class="img-resizable logoWidth md:logoWidth align-self-center svg">
+<div class="pt-2 hstack gap-3"><div class="mt-auto spacer"></div><div class="align-self-center segmented-control" data-persist-selection data-selected-segment="YspY9"><button data-default-selection type="button" class="segment btn" onclick="setColorScheme('dark');"><i alt="circle" class="bi-circle"></i></button><button type="button" class="segment btn" onclick="setColorScheme('light');"><i alt="circle-fill" class="bi-circle-fill"></i></button><button type="button" class="segment btn" onclick="setColorScheme('auto');"><i alt="circle-half" class="bi-circle-half"></i></button></div></div><div class="vstack gap-3" style="text-align: center"><div class="py-5 align-self-center vstack gap-3"><div class="align-self-center hstack" style="gap: 0px"><svg width="542" height="441" viewBox="0 0 542 441" fill="none" xmlns="http://www.w3.org/2000/svg" class="img-resizable logoWidth md:logoWidth align-self-center svg">
 <path d="M396 372C396 395.472 307.352 414.5 198 414.5C88.6476 414.5 0 395.472 0 372C0 348.528 88.6476 329.5 198 329.5C307.352 329.5 396 348.528 396 372Z" fill="#393939"/>
 <rect y="322" width="396" height="50" fill="#393939"/>
 <rect y="229" width="396" height="50" fill="#393939"/>
@@ -342,7 +343,7 @@ enum V0_0_1: VersionedSchema {
             on: context
         )
     }, didMigrate: nil)
-}</code></pre></div></div><div style="position: relative; grid-area: 1 / 1 / auto / auto; z-index: 1; align-self: center; justify-self: center"><div class="hidden-on-desktop lg:hidden-on-desktop vstack gap-3"><pre class="align-self-start" style="corner-shape: round; border-radius: 15px; width: 100%"><code class="language-swift">static let v1toV2 = MigrationStage.complex(
+}</code></pre></div></div><div style="position: relative; grid-area: 1 / 1 / auto / auto; z-index: 1; align-self: center; justify-self: center"><div class="hidden-on-desktop lg:hidden-on-desktop grid" style="--grid-template: 1fr 1fr; gap: 10px; justify-items: center; align-items: center"><pre class="grid-item" style="corner-shape: round; border-radius: 15px"><code class="language-swift">static let v1toV2 = MigrationStage.complex(
     fromVersion: V1.self,
     toVersion: V2.self,
     willMigrate: { context in
@@ -356,7 +357,7 @@ enum V0_0_1: VersionedSchema {
             on: context
         )
     }, didMigrate: nil)
-}</code></pre><i alt="arrow-left-right" class="fs-1 align-self-start bi-arrow-left-right" style="color: var(--accent)"></i><h1 class="align-self-start" style="font-weight: 500">Simple, safe migrations</h1><p class="align-self-start" style="color: var(--fg-secondary)">Vein utilizes explicit migrations to ensure data integrity. Helpers let you handle simple schema updates, complex changes are made through fetch-transform-delete. If a migration is incomplete, Vein automatically reverts it to prevent data corruption.</p><a target="_blank" href="https://docs.vein.amethystsoft.de/tutorials/table-of-contents" class="primary-button align-self-start">Get Started</a></div></div></div><div style="display: grid"><div style="position: relative; grid-area: 1 / 1 / auto / auto; z-index: 0; align-self: center; justify-self: center"><div class="hidden-on-mobile lg:hidden-on-mobile grid" style="--grid-template: 1fr 1fr; gap: 50px; justify-items: center; align-items: center"><pre class="grid-item" style="corner-shape: round; border-radius: 15px"><code class="language-swift">let descriptor = try FetchDescriptor(
+}</code></pre><div class="grid-item vstack gap-3"><i alt="arrow-left-right" class="fs-1 align-self-center bi-arrow-left-right" style="color: var(--accent)"></i><h1 class="align-self-center" style="font-weight: 500">Simple, safe migrations</h1><p class="align-self-center" style="color: var(--fg-secondary)">Vein utilizes explicit migrations to ensure data integrity. Helpers let you handle simple schema updates, complex changes are made through fetch-transform-delete. If a migration is incomplete, Vein automatically reverts it to prevent data corruption.</p><a target="_blank" href="https://docs.vein.amethystsoft.de/tutorials/table-of-contents" class="primary-button align-self-center">Get Started</a></div></div></div></div><div style="display: grid"><div style="position: relative; grid-area: 1 / 1 / auto / auto; z-index: 0; align-self: center; justify-self: center"><div class="hidden-on-mobile lg:hidden-on-mobile grid" style="--grid-template: 1fr 1fr; gap: 50px; justify-items: center; align-items: center"><pre class="grid-item" style="corner-shape: round; border-radius: 15px"><code class="language-swift">let descriptor = try FetchDescriptor(
     predicate: #Predicate<V0_0_1.Post> { post in
         post.title.contains("Vein")
         || post.title.starts(with: "Swift")
@@ -371,7 +372,7 @@ let results = try context.fetchAll(
         post.title.contains("Vein")
         || post.title.starts(with: "Swift")
     }
-)</code></pre><div class="grid-item vstack gap-3"><i alt="search" class="fs-1 align-self-start bi-search" style="color: var(--accent)"></i><h1 class="align-self-start" style="font-weight: 500">Swifty Queries</h1><p class="align-self-start" style="color: var(--fg-secondary)">Vein supports query building using idiomatic Swift. Use #Predicate or #Filter, writing a closure like you would for filter(_:) or create a ModelPredicate if you want direct control over the query.</p><a target="_blank" href="https://docs.vein.amethystsoft.de/tutorials/table-of-contents" class="primary-button align-self-start">Get Started</a></div></div></div><div style="position: relative; grid-area: 1 / 1 / auto / auto; z-index: 1; align-self: center; justify-self: center"><div class="hidden-on-desktop lg:hidden-on-desktop vstack gap-3"><pre class="align-self-start" style="corner-shape: round; border-radius: 15px; width: 100%"><code class="language-swift">let descriptor = try FetchDescriptor(
+)</code></pre><div class="grid-item vstack gap-3"><i alt="search" class="fs-1 align-self-start bi-search" style="color: var(--accent)"></i><h1 class="align-self-start" style="font-weight: 500">Swifty Queries</h1><p class="align-self-start" style="color: var(--fg-secondary)">Vein supports query building using idiomatic Swift. Use #Predicate or #Filter, writing a closure like you would for filter(_:) or create a ModelPredicate if you want direct control over the query.</p><a target="_blank" href="https://docs.vein.amethystsoft.de/tutorials/table-of-contents" class="primary-button align-self-start">Get Started</a></div></div></div><div style="position: relative; grid-area: 1 / 1 / auto / auto; z-index: 1; align-self: center; justify-self: center"><div class="hidden-on-desktop lg:hidden-on-desktop grid" style="--grid-template: 1fr 1fr; gap: 10px; justify-items: center; align-items: center"><pre class="grid-item" style="corner-shape: round; border-radius: 15px"><code class="language-swift">let descriptor = try FetchDescriptor(
     predicate: #Predicate<V0_0_1.Post> { post in
         post.title.contains("Vein")
         || post.title.starts(with: "Swift")
@@ -386,10 +387,10 @@ let results = try context.fetchAll(
         post.title.contains("Vein")
         || post.title.starts(with: "Swift")
     }
-)</code></pre><i alt="search" class="fs-1 align-self-start bi-search" style="color: var(--accent)"></i><h1 class="align-self-start" style="font-weight: 500">Swifty Queries</h1><p class="align-self-start" style="color: var(--fg-secondary)">Vein supports query building using idiomatic Swift. Use #Predicate or #Filter, writing a closure like you would for filter(_:) or create a ModelPredicate if you want direct control over the query.</p><a target="_blank" href="https://docs.vein.amethystsoft.de/tutorials/table-of-contents" class="primary-button align-self-start">Get Started</a></div></div></div><div style="display: grid"><div style="position: relative; grid-area: 1 / 1 / auto / auto; z-index: 0; align-self: center; justify-self: center"><div class="hidden-on-mobile lg:hidden-on-mobile grid" style="--grid-template: 1fr 1fr; gap: 50px; justify-items: center; align-items: center"><div class="grid-item vstack gap-3"><i alt="grid-1x2" class="fs-1 align-self-start bi-grid-1x2" style="color: var(--accent)"></i><h1 class="align-self-start" style="font-weight: 500">Direct UI integration</h1><p class="align-self-start" style="color: var(--fg-secondary)">Vein integrates directly with SwiftUI and SwiftCrossUI Views via the declarative, auto-updating @Query property wrapper and ObservableObject models.</p><a target="_blank" href="https://docs.vein.amethystsoft.de/tutorials/table-of-contents" class="primary-button align-self-start">Get Started</a></div><pre class="grid-item" style="margin-inline-start: auto; corner-shape: round; border-radius: 15px"><code class="language-swift">import VeinSwiftUI
+)</code></pre><div class="grid-item vstack gap-3"><i alt="search" class="fs-1 align-self-center bi-search" style="color: var(--accent)"></i><h1 class="align-self-center" style="font-weight: 500">Swifty Queries</h1><p class="align-self-center" style="color: var(--fg-secondary)">Vein supports query building using idiomatic Swift. Use #Predicate or #Filter, writing a closure like you would for filter(_:) or create a ModelPredicate if you want direct control over the query.</p><a target="_blank" href="https://docs.vein.amethystsoft.de/tutorials/table-of-contents" class="primary-button align-self-center">Get Started</a></div></div></div></div><div style="display: grid"><div style="position: relative; grid-area: 1 / 1 / auto / auto; z-index: 0; align-self: center; justify-self: center"><div class="hidden-on-mobile lg:hidden-on-mobile grid" style="--grid-template: 1fr 1fr; gap: 50px; justify-items: center; align-items: center"><div class="grid-item vstack gap-3"><i alt="grid-1x2" class="fs-1 align-self-start bi-grid-1x2" style="color: var(--accent)"></i><h1 class="align-self-start" style="font-weight: 500">Direct UI integration</h1><p class="align-self-start" style="color: var(--fg-secondary)">Vein integrates directly with SwiftUI and SwiftCrossUI Views via the declarative, auto-updating @Query property wrapper and ObservableObject models.</p><a target="_blank" href="https://docs.vein.amethystsoft.de/tutorials/table-of-contents" class="primary-button align-self-start">Get Started</a></div><pre class="grid-item" style="margin-inline-start: auto; corner-shape: round; border-radius: 15px"><code class="language-swift">import VeinSwiftUI
 
 struct PostList: View {
-    @Query(sortBy: [SortRule(\.id, order: .descending)
+    @Query(sortBy: [SortRule(\.id, order: .descending)])
     var posts: [Post]
 
     var body: some View {
@@ -397,10 +398,10 @@ struct PostList: View {
             Text(post.title)
         }
     )
-}</code></pre></div></div><div style="position: relative; grid-area: 1 / 1 / auto / auto; z-index: 1; align-self: center; justify-self: center"><div class="hidden-on-desktop lg:hidden-on-desktop vstack gap-3"><pre class="align-self-start" style="corner-shape: round; border-radius: 15px; width: 100%"><code class="language-swift">import VeinSwiftUI
+}</code></pre></div></div><div style="position: relative; grid-area: 1 / 1 / auto / auto; z-index: 1; align-self: center; justify-self: center"><div class="hidden-on-desktop lg:hidden-on-desktop grid" style="--grid-template: 1fr 1fr; gap: 10px; justify-items: center; align-items: center"><pre class="grid-item" style="corner-shape: round; border-radius: 15px"><code class="language-swift">import VeinSwiftUI
 
 struct PostList: View {
-    @Query(sortBy: [SortRule(\.id, order: .descending)
+    @Query(sortBy: [SortRule(\.id, order: .descending)])
     var posts: [Post]
 
     var body: some View {
@@ -408,7 +409,7 @@ struct PostList: View {
             Text(post.title)
         }
     )
-}</code></pre><i alt="grid-1x2" class="fs-1 align-self-start bi-grid-1x2" style="color: var(--accent)"></i><h1 class="align-self-start" style="font-weight: 500">Direct UI integration</h1><p class="align-self-start" style="color: var(--fg-secondary)">Vein integrates directly with SwiftUI and SwiftCrossUI Views via the declarative, auto-updating @Query property wrapper and ObservableObject models.</p><a target="_blank" href="https://docs.vein.amethystsoft.de/tutorials/table-of-contents" class="primary-button align-self-start">Get Started</a></div></div></div><div style="display: grid"><div style="position: relative; grid-area: 1 / 1 / auto / auto; z-index: 0; align-self: center; justify-self: center"><div class="hidden-on-mobile lg:hidden-on-mobile grid" style="--grid-template: 1fr 1fr; gap: 50px; justify-items: center; align-items: center"><pre class="grid-item" style="corner-shape: round; border-radius: 15px"><code class="language-swift">import Testing
+}</code></pre><div class="grid-item vstack gap-3"><i alt="grid-1x2" class="fs-1 align-self-center bi-grid-1x2" style="color: var(--accent)"></i><h1 class="align-self-center" style="font-weight: 500">Direct UI integration</h1><p class="align-self-center" style="color: var(--fg-secondary)">Vein integrates directly with SwiftUI and SwiftCrossUI Views via the declarative, auto-updating @Query property wrapper and ObservableObject models.</p><a target="_blank" href="https://docs.vein.amethystsoft.de/tutorials/table-of-contents" class="primary-button align-self-center">Get Started</a></div></div></div></div><div style="display: grid"><div style="position: relative; grid-area: 1 / 1 / auto / auto; z-index: 0; align-self: center; justify-self: center"><div class="hidden-on-mobile lg:hidden-on-mobile grid" style="--grid-template: 1fr 1fr; gap: 50px; justify-items: center; align-items: center"><pre class="grid-item" style="corner-shape: round; border-radius: 15px"><code class="language-swift">import Testing
 import VeinCore
 import VeinTesting
 
@@ -427,7 +428,7 @@ func testMigration() async throws {
             }
         ]
     )
-}</code></pre><div class="grid-item vstack gap-3"><i alt="database-up" class="fs-1 align-self-start bi-database-up" style="color: var(--accent)"></i><h1 class="align-self-start" style="font-weight: 500">Migration Test Support</h1><p class="align-self-start" style="color: var(--fg-secondary)">Migrations going wrong are a common case for data loss. To help you prevent that, Vein comes with VeinTesting, a thin layer on top of Vein to make testing migrations more pleasant.</p><a target="_blank" href="https://docs.vein.amethystsoft.de/tutorials/table-of-contents" class="primary-button align-self-start">Get Started</a></div></div></div><div style="position: relative; grid-area: 1 / 1 / auto / auto; z-index: 1; align-self: center; justify-self: center"><div class="hidden-on-desktop lg:hidden-on-desktop vstack gap-3"><pre class="align-self-start" style="corner-shape: round; border-radius: 15px; width: 100%"><code class="language-swift">import Testing
+}</code></pre><div class="grid-item vstack gap-3"><i alt="database-up" class="fs-1 align-self-start bi-database-up" style="color: var(--accent)"></i><h1 class="align-self-start" style="font-weight: 500">Migration Test Support</h1><p class="align-self-start" style="color: var(--fg-secondary)">Migrations going wrong are a common case for data loss. To help you prevent that, Vein comes with VeinTesting, a thin layer on top of Vein to make testing migrations more pleasant.</p><a target="_blank" href="https://docs.vein.amethystsoft.de/tutorials/table-of-contents" class="primary-button align-self-start">Get Started</a></div></div></div><div style="position: relative; grid-area: 1 / 1 / auto / auto; z-index: 1; align-self: center; justify-self: center"><div class="hidden-on-desktop lg:hidden-on-desktop grid" style="--grid-template: 1fr 1fr; gap: 10px; justify-items: center; align-items: center"><pre class="grid-item" style="corner-shape: round; border-radius: 15px"><code class="language-swift">import Testing
 import VeinCore
 import VeinTesting
 
@@ -446,4 +447,4 @@ func testMigration() async throws {
             }
         ]
     )
-}</code></pre><i alt="database-up" class="fs-1 align-self-start bi-database-up" style="color: var(--accent)"></i><h1 class="align-self-start" style="font-weight: 500">Migration Test Support</h1><p class="align-self-start" style="color: var(--fg-secondary)">Migrations going wrong are a common case for data loss. To help you prevent that, Vein comes with VeinTesting, a thin layer on top of Vein to make testing migrations more pleasant.</p><a target="_blank" href="https://docs.vein.amethystsoft.de/tutorials/table-of-contents" class="primary-button align-self-start">Get Started</a></div></div></div></div></div></main><footer><div class="vstack gap-3" style="padding-top: 90px"><p class="align-self-center" style="text-align: center; color: var(--fg-secondary); width: 100%; max-width: 800px">Amethyst Vein is an independent open-source project and is not affiliated with, sponsored, or endorsed by Apple Inc. SwiftUI and SwiftData trademarks of Apple Inc., registered in the U.S. and other countries.</p><a href="https://www.miakoring.de/impressum" class="align-self-center">Imprint</a><p class="align-self-center" style="text-align: center; color: var(--fg-secondary)">Created in Swift with <a href="https://raptor.build">Raptor</a></p></div></footer></body></html>
+}</code></pre><div class="grid-item vstack gap-3"><i alt="database-up" class="fs-1 align-self-center bi-database-up" style="color: var(--accent)"></i><h1 class="align-self-center" style="font-weight: 500">Migration Test Support</h1><p class="align-self-center" style="color: var(--fg-secondary)">Migrations going wrong are a common case for data loss. To help you prevent that, Vein comes with VeinTesting, a thin layer on top of Vein to make testing migrations more pleasant.</p><a target="_blank" href="https://docs.vein.amethystsoft.de/tutorials/table-of-contents" class="primary-button align-self-center">Get Started</a></div></div></div></div></div></div></main><footer><div class="vstack gap-3" style="padding-top: 90px"><p class="align-self-center" style="text-align: center; color: var(--fg-secondary); width: 100%; max-width: 800px">Amethyst Vein is an independent open-source project and is not affiliated with, sponsored, or endorsed by Apple Inc. SwiftUI and SwiftData trademarks of Apple Inc., registered in the U.S. and other countries.</p><a href="https://www.miakoring.de/impressum" class="align-self-center">Imprint</a><p class="align-self-center" style="text-align: center; color: var(--fg-secondary)">Created in Swift with <a href="https://raptor.build">Raptor</a></p></div></footer></body></html>

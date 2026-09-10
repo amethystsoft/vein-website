@@ -78,7 +78,7 @@ enum Resources {
         import VeinSwiftUI
         
         struct PostList: View {
-            @Query(sortBy: [SortRule(\.id, order: .descending)
+            @Query(sortBy: [SortRule(\.id, order: .descending)])
             var posts: [Post]
         
             var body: some View {

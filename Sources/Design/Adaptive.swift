@@ -3,12 +3,12 @@ import Raptor
 extension HTML {
     func hiddenOnMobile() -> some HTML {
         self.class("hidden-on-mobile")
-            .class("lg:hidden-on-mobile")
+            .class("md:hidden-on-mobile")
     }
     
     func hiddenOnDesktop() -> some HTML {
         self.class("hidden-on-desktop")
-            .class("lg:hidden-on-desktop")
+            .class("md:hidden-on-desktop")
     }
 }
 
