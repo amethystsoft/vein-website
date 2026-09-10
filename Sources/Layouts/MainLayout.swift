@@ -2,7 +2,6 @@ import Foundation
 import Raptor
 
 struct MainLayout: Layout {
-
     var body: some Document {
         Main {
             Navbar()
@@ -15,7 +14,11 @@ struct MainLayout: Layout {
                     .multilineTextAlignment(.center)
                     .foregroundStyle(.secondary)
                     .frame(maxWidth: 800)
-                Link("Imprint", destination: "https://www.miakoring.de/impressum")
+                
+                HStack {
+                    Text("© 2026 Mia Koring")
+                    Link("Imprint", destination: "https://www.miakoring.de/impressum")
+                }
                 Text {
                     "Created in Swift with "
                     Link("Raptor", destination: URL(static: "https://raptor.build"))
