@@ -15,8 +15,8 @@ struct RaptorWebsite {
 }
 
 struct ExampleSite: Site {    
-    var name = "Home"
-    var titleSuffix = " - Amethyst Vein"
+    var name = ""
+    var titleSuffix = ""
     var url = URL(static: "https://vein.amethystsoft.de")
     
     nonisolated var themes: [any Theme] = [
