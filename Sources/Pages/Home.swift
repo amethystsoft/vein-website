@@ -2,7 +2,7 @@ import Foundation
 import Raptor
 
 struct Home: Page {
-    var title = "Document Hub"
+    var title = "Amethyst Vein - Home"
     @Environment(\.themes) var themes
     
     var body: some HTML {
