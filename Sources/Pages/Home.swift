@@ -57,7 +57,7 @@ struct HeroSection: HTML {
                     .style(.width(.dvw(100)))
                     .style(.backgroundImage("linear-gradient(0deg, var(--bg-page) 0%, color-mix(in srgb, #DE69FF 50%, transparent) 50%, var(--bg-page) 100%)"))
                 
-                Text("Vein provides a safe, declarative and elegant foundation to handle data persistance for your Swift apps on any major platform.")
+                Text("Vein provides a safe, declarative and elegant foundation to handle data persistence for your Swift apps on any major platform.")
                     .font(.title3)
                     .foregroundStyle(.secondary)
                     .fontWeight(.regular)
@@ -71,6 +71,7 @@ struct HeroSection: HTML {
                         .primaryButton()
                     StarButton(owner: "amethystsoft", repo: "vein")
                 }
+                Include("mentions.html")
             }
             .padding(.vertical, .xLarge)
             
