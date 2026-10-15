@@ -33,6 +33,8 @@ struct Home: Page {
             SubSection1()
                 .padding(.top, 40)
             SubSection2()
+                .padding(.top, 40)
+            SubSection3()
         }
     }
 }
