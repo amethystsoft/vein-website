@@ -2,7 +2,7 @@ import Raptor
 
 struct SubSection3: HTML {
     var body: some HTML {
-        Grid {
+        Grid(spacing: 40) {
             GridRow {
                 VStack(alignment: .leading) {
                     Text("Bugs and Vulnerabilites")
@@ -18,6 +18,9 @@ struct SubSection3: HTML {
                     }
                 }
                 VStack {}
+            }
+            GridRow {
+                FAQs()
             }
         }
     }

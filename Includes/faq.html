@@ -1,0 +1,251 @@
+  <script>
+    /**
+     * <faq-list> and <faq-item>
+     *
+     * <faq-list> attributes:  single  - only one item open at a time
+     * <faq-item> attributes:  title, open
+     *
+     * CSS custom properties: --faq-accent, --faq-border, --faq-radius,
+     *                        --faq-duration, --faq-text, --faq-surface, --faq-gap
+     * Event: faq-toggle (bubbles, composed) - detail: { open: boolean }
+     */
+    class FaqItem extends HTMLElement {
+        static get observedAttributes() {
+            return ["open", "title"];
+        }
+        
+        constructor() {
+            super();
+            this.attachShadow({ mode: "open" });
+            this._uid = "faq-" + Math.random().toString(36).slice(2, 9);
+        }
+        
+        connectedCallback() {
+            if (!this.shadowRoot.firstChild) this.render();
+            this.sync();
+        }
+        
+        attributeChangedCallback() {
+            if (!this.shadowRoot.firstChild) return;
+            this.sync();
+        }
+        
+        get open() {
+            return this.hasAttribute("open");
+        }
+        
+        set open(value) {
+            if (value) this.setAttribute("open", "");
+            else this.removeAttribute("open");
+        }
+        
+        toggle() {
+            this.open = !this.open;
+            this.dispatchEvent(
+                               new CustomEvent("faq-toggle", {
+                                   bubbles: true,
+                                   composed: true,
+                                   detail: { open: this.open },
+                               })
+                               );
+        }
+        
+        sync() {
+            const isOpen = this.open;
+            const button = this.shadowRoot.querySelector("button");
+            const content = this.shadowRoot.querySelector(".content");
+            const label = this.shadowRoot.querySelector(".label");
+            
+            label.textContent = this.getAttribute("title") || "";
+            button.setAttribute("aria-expanded", String(isOpen));
+            this.shadowRoot.querySelector(".item").classList.toggle("is-open", isOpen);
+            
+            // Keep collapsed content out of the tab order & accessibility tree
+            content.inert = !isOpen;
+        }
+        
+        render() {
+            this.shadowRoot.innerHTML = `
+<style>
+  :host {
+    display: block;
+
+    --_accent: var(--faq-accent, #83239e);
+    --_border: var(--faq-border, color-mix(in srgb, var(--_accent) 25%, transparent));
+    --_radius: var(--faq-radius, 12px);
+    --_duration: var(--faq-duration, 0.3s);
+    --_text: var(--faq-text, inherit);
+    --_surface: var(--faq-surface, transparent);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :host {
+      --_accent: var(--faq-accent, #DE69FF);
+    }
+  }
+
+  .item {
+    border: 1px solid var(--_border);
+    border-radius: var(--_radius);
+    background: var(--_surface);
+    color: var(--_text);
+    overflow: hidden;
+    transition: border-color var(--_duration) ease,
+                box-shadow var(--_duration) ease;
+  }
+
+  .item.is-open {
+    border-color: var(--_accent);
+    box-shadow: 0 0 0 1px var(--_accent);
+  }
+
+  button {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 600;
+    color: inherit;
+    transition: color var(--_duration) ease;
+  }
+
+  button:hover,
+  .item.is-open button {
+    color: var(--_accent);
+  }
+
+  button:focus-visible {
+    outline: 2px solid var(--_accent);
+    outline-offset: -2px;
+    border-radius: var(--_radius);
+  }
+
+  .icon {
+    flex: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    position: relative;
+    transition: transform var(--_duration) cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .icon::before,
+  .icon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    border-radius: 1px;
+    transform: translate(-50%, -50%);
+  }
+
+  .icon::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+    transition: transform var(--_duration) cubic-bezier(0.4, 0, 0.2, 1),
+                opacity var(--_duration) ease;
+  }
+
+  .item.is-open .icon {
+    transform: rotate(180deg);
+  }
+
+  .item.is-open .icon::after {
+    transform: translate(-50%, -50%) rotate(0deg);
+    opacity: 0;
+  }
+
+  /* Height animation: grid rows 0fr -> 1fr animates to auto height */
+  .content {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows var(--_duration) cubic-bezier(0.4, 0, 0.2, 1),
+                opacity var(--_duration) ease;
+  }
+
+  .item.is-open .content {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+
+  .content-inner {
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  .body {
+    padding: 0 1.25rem 1.25rem;
+    line-height: 1.6;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+
+<div class="item">
+  <button type="button" id="${this._uid}-btn" aria-controls="${this._uid}-panel" aria-expanded="false">
+    <span class="label"></span>
+    <span class="icon" aria-hidden="true"></span>
+  </button>
+  <div class="content" id="${this._uid}-panel" role="region" aria-labelledby="${this._uid}-btn">
+    <div class="content-inner">
+      <div class="body"><slot></slot></div>
+    </div>
+  </div>
+</div>
+`;
+
+this.shadowRoot.querySelector("button").addEventListener("click", () => this.toggle());
+        }
+    }
+    
+    class FaqList extends HTMLElement {
+        constructor() {
+            super();
+            this.attachShadow({ mode: "open" });
+        }
+        
+        connectedCallback() {
+            this.render();
+            
+            // In "single" mode, close the other items when one opens
+            this.addEventListener("faq-toggle", (event) => {
+                if (!this.hasAttribute("single") || !event.detail.open) return;
+                this.querySelectorAll("faq-item").forEach((item) => {
+                    if (item !== event.target) item.open = false;
+                });
+            });
+        }
+        
+        render() {
+            this.shadowRoot.innerHTML = `
+<style>
+  :host { display: block; }
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--faq-gap, 0.75rem);
+  }
+</style>
+
+<div class="list" role="list">
+  <slot></slot>
+</div>
+`;
+        }
+    }
+    
+    customElements.define("faq-item", FaqItem);
+    customElements.define("faq-list", FaqList);
+</script>
